@@ -14,6 +14,8 @@
 		9903BAA328974D990013A5CB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAA228974D990013A5CB /* SearchViewController.swift */; };
 		9903BAA628974E1E0013A5CB /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAA528974E1E0013A5CB /* FavoritesListViewController.swift */; };
 		9903BAA8289753210013A5CB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAA7289753210013A5CB /* MainTabBarController.swift */; };
+		9903BAB02897589C0013A5CB /* GetFollowersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAAF2897589C0013A5CB /* GetFollowersButton.swift */; };
+		9903BAB928975C3C0013A5CB /* LoginCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAB828975C3C0013A5CB /* LoginCustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		9903BAA228974D990013A5CB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9903BAA528974E1E0013A5CB /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
 		9903BAA7289753210013A5CB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		9903BAAF2897589C0013A5CB /* GetFollowersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFollowersButton.swift; sourceTree = "<group>"; };
+		9903BAB828975C3C0013A5CB /* LoginCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +90,9 @@
 		9903BAAB2897535C0013A5CB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				9903BAAD289753A00013A5CB /* Controllers */,
+				9903BAA7289753210013A5CB /* MainTabBarController.swift */,
+				9903BAB228975B890013A5CB /* Search */,
+				9903BAB328975B960013A5CB /* Favorites */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -100,14 +106,70 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		9903BAAD289753A00013A5CB /* Controllers */ = {
+		9903BAAD289753A00013A5CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				9903BAA228974D990013A5CB /* SearchViewController.swift */,
-				9903BAA528974E1E0013A5CB /* FavoritesListViewController.swift */,
-				9903BAA7289753210013A5CB /* MainTabBarController.swift */,
 			);
-			path = Controllers;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9903BAAE289758690013A5CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9903BAAF2897589C0013A5CB /* GetFollowersButton.swift */,
+				9903BAB828975C3C0013A5CB /* LoginCustomTextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9903BAB128975B670013A5CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9903BAB228975B890013A5CB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9903BAB128975B670013A5CB /* Model */,
+				9903BAAE289758690013A5CB /* View */,
+				9903BAAD289753A00013A5CB /* Controller */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		9903BAB328975B960013A5CB /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				9903BAB428975BA80013A5CB /* Model */,
+				9903BAB528975BAC0013A5CB /* View */,
+				9903BAB628975BAF0013A5CB /* Controller */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		9903BAB428975BA80013A5CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9903BAB528975BAC0013A5CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9903BAB628975BAF0013A5CB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9903BAA528974E1E0013A5CB /* FavoritesListViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,11 +242,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9903BAB02897589C0013A5CB /* GetFollowersButton.swift in Sources */,
 				9903BAA628974E1E0013A5CB /* FavoritesListViewController.swift in Sources */,
 				9903BAA328974D990013A5CB /* SearchViewController.swift in Sources */,
 				9903BAA8289753210013A5CB /* MainTabBarController.swift in Sources */,
 				9903BA8F2897460F0013A5CB /* AppDelegate.swift in Sources */,
 				9903BA912897460F0013A5CB /* SceneDelegate.swift in Sources */,
+				9903BAB928975C3C0013A5CB /* LoginCustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
