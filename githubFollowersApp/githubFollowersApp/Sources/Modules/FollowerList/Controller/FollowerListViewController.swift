@@ -39,7 +39,7 @@ final class FollowerListViewController: UIViewController {
         followerListСollectionView = UICollectionView(frame: view.bounds,
                                                       collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(followerListСollectionView)
-        followerListСollectionView.backgroundColor = .systemPink
+        followerListСollectionView.backgroundColor = .systemBackground
 
         followerListСollectionView.register(FollowerListCollectionViewCell.self,
                                             forCellWithReuseIdentifier: FollowerListCollectionViewCell.identifier)
