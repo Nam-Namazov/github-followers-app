@@ -27,6 +27,7 @@
 		9903BAD728982DF90013A5CB /* GetFollowersErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAD628982DF90013A5CB /* GetFollowersErrorMessage.swift */; };
 		9903BAD92898379F0013A5CB /* FollowerListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAD82898379F0013A5CB /* FollowerListCollectionViewCell.swift */; };
 		9903BADB28983A450013A5CB /* FollowerProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BADA28983A450013A5CB /* FollowerProfileImage.swift */; };
+		9903BADF28986F420013A5CB /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BADE28986F420013A5CB /* UIHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		9903BAD628982DF90013A5CB /* GetFollowersErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFollowersErrorMessage.swift; sourceTree = "<group>"; };
 		9903BAD82898379F0013A5CB /* FollowerListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListCollectionViewCell.swift; sourceTree = "<group>"; };
 		9903BADA28983A450013A5CB /* FollowerProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerProfileImage.swift; sourceTree = "<group>"; };
+		9903BADE28986F420013A5CB /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				9903BAD628982DF90013A5CB /* GetFollowersErrorMessage.swift */,
+				9903BADE28986F420013A5CB /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				9903BA8F2897460F0013A5CB /* AppDelegate.swift in Sources */,
 				9903BAD728982DF90013A5CB /* GetFollowersErrorMessage.swift in Sources */,
 				9903BAD4289823BE0013A5CB /* NetworkManager.swift in Sources */,
+				9903BADF28986F420013A5CB /* UIHelper.swift in Sources */,
 				9903BA912897460F0013A5CB /* SceneDelegate.swift in Sources */,
 				9903BAB928975C3C0013A5CB /* CustomLoginTextField.swift in Sources */,
 				9903BAD92898379F0013A5CB /* FollowerListCollectionViewCell.swift in Sources */,

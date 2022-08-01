@@ -13,7 +13,7 @@ final class FollowerListViewController: UIViewController {
     }
     
     var username: String?
-    var followers: [FollowerModel] = []
+    private var followers: [FollowerModel] = []
     private var followerListСollectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, FollowerModel>!
     
@@ -37,7 +37,7 @@ final class FollowerListViewController: UIViewController {
     
     private func configureCollectionView() {
         followerListСollectionView = UICollectionView(frame: view.bounds,
-                                                      collectionViewLayout: createThreeColumnFlowLayout())
+                                                      collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(followerListСollectionView)
         followerListСollectionView.backgroundColor = .systemPink
 
@@ -49,7 +49,12 @@ final class FollowerListViewController: UIViewController {
         guard let username = username else {
             return
         }
-        NetworkManager.shared.getFollowers(for: username, page: 1) { result in
+
+        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            
             switch result {
                 
             case .success(let followers):
@@ -63,23 +68,6 @@ final class FollowerListViewController: UIViewController {
             }
         }
     }
-    
-    private func createThreeColumnFlowLayout()  -> UICollectionViewFlowLayout {
-        let width = view.bounds.width
-        let padding: CGFloat = 12
-        let minimumItemSpacing: CGFloat = 10
-        let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
-        let itemWidth = availableWidth / 3
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: padding,
-                                               left: padding,
-                                               bottom: padding,
-                                               right: padding)
-        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
-        return flowLayout
-    }
-    
-
     
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, FollowerModel>(collectionView: followerListСollectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
