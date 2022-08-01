@@ -19,7 +19,7 @@ final class SearchViewController: UIViewController {
         return logoImageView
     }()
     
-    private let enterUsernameTextField = LoginCustomTextField()
+    private let enterUsernameTextField = CustomLoginTextField()
     
     private let getFollowersButton = GetFollowersButton(backGroundColor: .systemGreen,
                                                         title: "Get Followers")
@@ -54,27 +54,35 @@ final class SearchViewController: UIViewController {
     }
 
     private func setupLayout() {
+        // addSubview
         view.addSubview(logoImageView)
         view.addSubview(enterUsernameTextField)
         view.addSubview(getFollowersButton)
         
         NSLayoutConstraint.activate([
             // logoImageView
-            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                               constant: 80),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.heightAnchor.constraint(equalToConstant: 200),
             logoImageView.widthAnchor.constraint(equalToConstant: 200),
             
             // enterUsernameTextField
-            enterUsernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
-            enterUsernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            enterUsernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            enterUsernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor,
+                                                        constant: 48),
+            enterUsernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                            constant: 50),
+            enterUsernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                             constant: -50),
             enterUsernameTextField.heightAnchor.constraint(equalToConstant: 50),
             
             // getFollowersButton
-            getFollowersButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            getFollowersButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            getFollowersButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            getFollowersButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                        constant: 50),
+            getFollowersButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                                       constant: -50),
+            getFollowersButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                         constant: -50),
             getFollowersButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
@@ -88,13 +96,17 @@ final class SearchViewController: UIViewController {
     
     @objc private func pushToTheFollowerListViewController() {
         guard isUsernameIsEmpty else {
-            print("no username")
+            presentAlertOnMainThread(title: "Empty Username",
+                                     message: "Please enter a username. We need to know who to look for 😉",
+                                     buttonTitle: "Ok")
             return
         }
+        
         let followerListViewController = FollowerListViewController()
         followerListViewController.username = enterUsernameTextField.text
         followerListViewController.title = enterUsernameTextField.text
-        navigationController?.pushViewController(followerListViewController, animated: true)
+        navigationController?.pushViewController(followerListViewController,
+                                                 animated: true)
     }
 }
 
