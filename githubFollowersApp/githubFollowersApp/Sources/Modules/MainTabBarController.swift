@@ -27,23 +27,24 @@ final class MainTabBarController: UITabBarController {
                                      tabBarSystemItem: UITabBarItem.SystemItem,
                                      tag: Int ) -> UINavigationController {
         let navController = UINavigationController(rootViewController: viewController)
-        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: tabBarSystemItem, tag: tag)
+        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: tabBarSystemItem,
+                                                 tag: tag)
         return navController
     }
 
     private func style() {
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = .systemBackground
         tabBar.backgroundColor = .white
-        tabBar.tintColor = .black
+        tabBar.tintColor = .systemGreen
         tabBar.scrollEdgeAppearance = tabBar.standardAppearance
         
-        UINavigationBar.appearance().barTintColor = .black
+        UINavigationBar.appearance().barTintColor = .systemGreen
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.black]
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().prefersLargeTitles = false
-        UINavigationBar.appearance().tintColor = .black
+        UINavigationBar.appearance().tintColor = .systemGreen
         UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
     }
 }
