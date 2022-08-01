@@ -21,6 +21,8 @@
 		9903BAC12897E8470013A5CB /* CustomErrorMessageBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAC02897E8470013A5CB /* CustomErrorMessageBodyLabel.swift */; };
 		9903BAC52897E9440013A5CB /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAC42897E9440013A5CB /* CustomAlertViewController.swift */; };
 		9903BAC82897F2A90013A5CB /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAC72897F2A90013A5CB /* UIViewController+Extension.swift */; };
+		9903BACF28980A390013A5CB /* FollowerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BACE28980A390013A5CB /* FollowerModel.swift */; };
+		9903BAD128980B960013A5CB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAD028980B960013A5CB /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		9903BAC02897E8470013A5CB /* CustomErrorMessageBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorMessageBodyLabel.swift; sourceTree = "<group>"; };
 		9903BAC42897E9440013A5CB /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		9903BAC72897F2A90013A5CB /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		9903BACE28980A390013A5CB /* FollowerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerModel.swift; sourceTree = "<group>"; };
+		9903BAD028980B960013A5CB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,8 @@
 		9903BACA2897FCAD0013A5CB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9903BACE28980A390013A5CB /* FollowerModel.swift */,
+				9903BAD028980B960013A5CB /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,8 +316,10 @@
 				9903BAB02897589C0013A5CB /* GetFollowersButton.swift in Sources */,
 				9903BAA628974E1E0013A5CB /* FavoritesListViewController.swift in Sources */,
 				9903BAC52897E9440013A5CB /* CustomAlertViewController.swift in Sources */,
+				9903BACF28980A390013A5CB /* FollowerModel.swift in Sources */,
 				9903BAC12897E8470013A5CB /* CustomErrorMessageBodyLabel.swift in Sources */,
 				9903BAA328974D990013A5CB /* SearchViewController.swift in Sources */,
+				9903BAD128980B960013A5CB /* UserModel.swift in Sources */,
 				9903BABF2897E6C50013A5CB /* CustomTitleOfErrorLabel.swift in Sources */,
 				9903BAA8289753210013A5CB /* MainTabBarController.swift in Sources */,
 				9903BA8F2897460F0013A5CB /* AppDelegate.swift in Sources */,
