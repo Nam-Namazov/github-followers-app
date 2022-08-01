@@ -16,6 +16,7 @@
 		9903BAA8289753210013A5CB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAA7289753210013A5CB /* MainTabBarController.swift */; };
 		9903BAB02897589C0013A5CB /* GetFollowersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAAF2897589C0013A5CB /* GetFollowersButton.swift */; };
 		9903BAB928975C3C0013A5CB /* LoginCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAB828975C3C0013A5CB /* LoginCustomTextField.swift */; };
+		9903BABD289767210013A5CB /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BABC289767210013A5CB /* FollowerListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9903BAA7289753210013A5CB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		9903BAAF2897589C0013A5CB /* GetFollowersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFollowersButton.swift; sourceTree = "<group>"; };
 		9903BAB828975C3C0013A5CB /* LoginCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCustomTextField.swift; sourceTree = "<group>"; };
+		9903BABC289767210013A5CB /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				9903BAA228974D990013A5CB /* SearchViewController.swift */,
+				9903BABC289767210013A5CB /* FollowerListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9903BABD289767210013A5CB /* FollowerListViewController.swift in Sources */,
 				9903BAB02897589C0013A5CB /* GetFollowersButton.swift in Sources */,
 				9903BAA628974E1E0013A5CB /* FavoritesListViewController.swift in Sources */,
 				9903BAA328974D990013A5CB /* SearchViewController.swift in Sources */,

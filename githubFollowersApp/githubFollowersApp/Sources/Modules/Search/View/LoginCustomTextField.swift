@@ -31,7 +31,7 @@ final class LoginCustomTextField: UITextField {
         backgroundColor = .tertiarySystemBackground
         autocorrectionType = .no
         placeholder = "Enter a username"
+        returnKeyType = .go
         translatesAutoresizingMaskIntoConstraints = false
     }
-    
 }
