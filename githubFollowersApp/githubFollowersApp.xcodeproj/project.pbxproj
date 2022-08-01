@@ -25,6 +25,8 @@
 		9903BAD128980B960013A5CB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAD028980B960013A5CB /* UserModel.swift */; };
 		9903BAD4289823BE0013A5CB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAD3289823BE0013A5CB /* NetworkManager.swift */; };
 		9903BAD728982DF90013A5CB /* GetFollowersErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAD628982DF90013A5CB /* GetFollowersErrorMessage.swift */; };
+		9903BAD92898379F0013A5CB /* FollowerListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAD82898379F0013A5CB /* FollowerListCollectionViewCell.swift */; };
+		9903BADB28983A450013A5CB /* FollowerProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BADA28983A450013A5CB /* FollowerProfileImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		9903BAD028980B960013A5CB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		9903BAD3289823BE0013A5CB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9903BAD628982DF90013A5CB /* GetFollowersErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFollowersErrorMessage.swift; sourceTree = "<group>"; };
+		9903BAD82898379F0013A5CB /* FollowerListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListCollectionViewCell.swift; sourceTree = "<group>"; };
+		9903BADA28983A450013A5CB /* FollowerProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerProfileImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,8 @@
 		9903BACB2897FCB20013A5CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9903BAD82898379F0013A5CB /* FollowerListCollectionViewCell.swift */,
+				9903BADA28983A450013A5CB /* FollowerProfileImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9903BAC82897F2A90013A5CB /* UIViewController+Extension.swift in Sources */,
+				9903BADB28983A450013A5CB /* FollowerProfileImage.swift in Sources */,
 				9903BABD289767210013A5CB /* FollowerListViewController.swift in Sources */,
 				9903BAB02897589C0013A5CB /* GetFollowersButton.swift in Sources */,
 				9903BAA628974E1E0013A5CB /* FavoritesListViewController.swift in Sources */,
@@ -349,6 +356,7 @@
 				9903BAD4289823BE0013A5CB /* NetworkManager.swift in Sources */,
 				9903BA912897460F0013A5CB /* SceneDelegate.swift in Sources */,
 				9903BAB928975C3C0013A5CB /* CustomLoginTextField.swift in Sources */,
+				9903BAD92898379F0013A5CB /* FollowerListCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
