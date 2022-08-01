@@ -23,6 +23,8 @@
 		9903BAC82897F2A90013A5CB /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAC72897F2A90013A5CB /* UIViewController+Extension.swift */; };
 		9903BACF28980A390013A5CB /* FollowerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BACE28980A390013A5CB /* FollowerModel.swift */; };
 		9903BAD128980B960013A5CB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAD028980B960013A5CB /* UserModel.swift */; };
+		9903BAD4289823BE0013A5CB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAD3289823BE0013A5CB /* NetworkManager.swift */; };
+		9903BAD728982DF90013A5CB /* GetFollowersErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAD628982DF90013A5CB /* GetFollowersErrorMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		9903BAC72897F2A90013A5CB /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		9903BACE28980A390013A5CB /* FollowerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerModel.swift; sourceTree = "<group>"; };
 		9903BAD028980B960013A5CB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		9903BAD3289823BE0013A5CB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9903BAD628982DF90013A5CB /* GetFollowersErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFollowersErrorMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +109,11 @@
 			isa = PBXGroup;
 			children = (
 				9903BACD2897FCCB0013A5CB /* TabBar */,
+				9903BAD2289823B30013A5CB /* Persistence */,
 				9903BAB228975B890013A5CB /* Search */,
 				9903BAC92897FCA40013A5CB /* FollowerList */,
 				9903BAB328975B960013A5CB /* Favorites */,
+				9903BAD528982DE80013A5CB /* Utilities */,
 				9903BAC62897F2970013A5CB /* Extensions */,
 			);
 			path = Modules;
@@ -241,6 +247,22 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		9903BAD2289823B30013A5CB /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				9903BAD3289823BE0013A5CB /* NetworkManager.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		9903BAD528982DE80013A5CB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9903BAD628982DF90013A5CB /* GetFollowersErrorMessage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -323,6 +345,8 @@
 				9903BABF2897E6C50013A5CB /* CustomTitleOfErrorLabel.swift in Sources */,
 				9903BAA8289753210013A5CB /* MainTabBarController.swift in Sources */,
 				9903BA8F2897460F0013A5CB /* AppDelegate.swift in Sources */,
+				9903BAD728982DF90013A5CB /* GetFollowersErrorMessage.swift in Sources */,
+				9903BAD4289823BE0013A5CB /* NetworkManager.swift in Sources */,
 				9903BA912897460F0013A5CB /* SceneDelegate.swift in Sources */,
 				9903BAB928975C3C0013A5CB /* CustomLoginTextField.swift in Sources */,
 			);
