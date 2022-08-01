@@ -28,6 +28,7 @@
 		9903BAD92898379F0013A5CB /* FollowerListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAD82898379F0013A5CB /* FollowerListCollectionViewCell.swift */; };
 		9903BADB28983A450013A5CB /* FollowerProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BADA28983A450013A5CB /* FollowerProfileImage.swift */; };
 		9903BADF28986F420013A5CB /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BADE28986F420013A5CB /* UIHelper.swift */; };
+		9903BAE128988FB00013A5CB /* NoFollowersEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAE028988FB00013A5CB /* NoFollowersEmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		9903BAD82898379F0013A5CB /* FollowerListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListCollectionViewCell.swift; sourceTree = "<group>"; };
 		9903BADA28983A450013A5CB /* FollowerProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerProfileImage.swift; sourceTree = "<group>"; };
 		9903BADE28986F420013A5CB /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		9903BAE028988FB00013A5CB /* NoFollowersEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFollowersEmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			children = (
 				9903BAD82898379F0013A5CB /* FollowerListCollectionViewCell.swift */,
 				9903BADA28983A450013A5CB /* FollowerProfileImage.swift */,
+				9903BAE028988FB00013A5CB /* NoFollowersEmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9903BAC82897F2A90013A5CB /* UIViewController+Extension.swift in Sources */,
+				9903BAE128988FB00013A5CB /* NoFollowersEmptyView.swift in Sources */,
 				9903BADB28983A450013A5CB /* FollowerProfileImage.swift in Sources */,
 				9903BABD289767210013A5CB /* FollowerListViewController.swift in Sources */,
 				9903BAB02897589C0013A5CB /* GetFollowersButton.swift in Sources */,
