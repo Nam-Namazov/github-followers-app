@@ -7,8 +7,7 @@
 
 import UIKit
 
-final class LoginCustomTextField: UITextField {
-    
+final class CustomLoginTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()

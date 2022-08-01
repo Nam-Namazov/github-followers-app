@@ -19,7 +19,6 @@ final class MainTabBarController: UITabBarController {
                                                        tabBarSystemItem: .search, tag: 0)
         let favoritesViewController = createNavController(viewController: FavoritesListViewController(),
                                                           tabBarSystemItem: .favorites, tag: 1)
-        
         viewControllers = [searchViewController, favoritesViewController]
     }
 
@@ -34,7 +33,8 @@ final class MainTabBarController: UITabBarController {
 
     private func style() {
         view.backgroundColor = .systemBackground
-        tabBar.backgroundColor = .white
+        
+        tabBar.backgroundColor = .systemBackground
         tabBar.tintColor = .systemGreen
         tabBar.scrollEdgeAppearance = tabBar.standardAppearance
         
