@@ -37,13 +37,13 @@ final class MainTabBarController: UITabBarController {
         tabBar.tintColor = .systemGreen
         tabBar.scrollEdgeAppearance = tabBar.standardAppearance
         
-        UINavigationBar.appearance().barTintColor = .systemGreen
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.black]
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().prefersLargeTitles = false
+        UINavigationBar.appearance().barTintColor = .systemBackground
+//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.black]
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+//        UINavigationBar.appearance().shadowImage = UIImage()
+//        UINavigationBar.appearance().isTranslucent = true
+//        UINavigationBar.appearance().prefersLargeTitles = false
         UINavigationBar.appearance().tintColor = .systemGreen
-        UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
+//        UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
     }
 }
