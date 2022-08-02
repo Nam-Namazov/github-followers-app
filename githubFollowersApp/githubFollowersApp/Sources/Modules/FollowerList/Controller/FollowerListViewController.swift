@@ -42,12 +42,12 @@ final class FollowerListViewController: UIViewController {
     
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds,
-                                                      collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
+                                          collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         collectionView.delegate = self
         collectionView.register(FollowerListCollectionViewCell.self,
-                                            forCellWithReuseIdentifier: FollowerListCollectionViewCell.identifier)
+                                forCellWithReuseIdentifier: FollowerListCollectionViewCell.identifier)
     }
     
     private func configureSearchController() {
@@ -62,7 +62,8 @@ final class FollowerListViewController: UIViewController {
     
     private func getFollowers(username: String, page: Int) {
         showLoadingView()
-        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
+        NetworkManager.shared.getFollowers(for: username,
+                                           page: page) { [weak self] result in
             guard let self = self else {
                 return
             }
@@ -137,7 +138,6 @@ extension FollowerListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let activeArray = isSearching ? filteredFollowers : followers
         let follower = activeArray[indexPath.item]
-        
         let userInfoViewController = FollowerUserInfoViewController()
         userInfoViewController.username = follower.login
         let navController = UINavigationController(rootViewController: userInfoViewController)

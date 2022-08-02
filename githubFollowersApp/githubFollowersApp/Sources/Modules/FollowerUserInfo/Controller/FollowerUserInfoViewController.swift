@@ -34,8 +34,10 @@ final class FollowerUserInfoViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.add(childViewController: FollowerProfileHeaderViewController(profile: profile),
                              to: self.headerView)
-                    self.add(childViewController: RepositoryItemViewController(profile: profile), to: self.firstItemView)
-                    self.add(childViewController: ItemGetFollowersViewController(profile: profile), to: self.secondItemView)
+                    self.add(childViewController: RepositoryItemViewController(profile: profile),
+                             to: self.firstItemView)
+                    self.add(childViewController: ItemGetFollowersViewController(profile: profile),
+                             to: self.secondItemView)
                 }
                 
             case .failure(let error):
@@ -56,8 +58,10 @@ final class FollowerUserInfoViewController: UIViewController {
             subview.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([
-                subview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                subview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+                subview.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                 constant: 20),
+                subview.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                  constant: -20)
             ])
         }
 
@@ -76,7 +80,8 @@ final class FollowerUserInfoViewController: UIViewController {
         ])
     }
     
-    private func add(childViewController: UIViewController, to containerView: UIView) {
+    private func add(childViewController: UIViewController,
+                     to containerView: UIView) {
         addChild(childViewController)
         containerView.addSubview(childViewController.view)
         childViewController.view.frame = containerView.bounds
