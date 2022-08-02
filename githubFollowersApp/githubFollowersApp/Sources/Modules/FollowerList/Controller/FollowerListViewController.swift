@@ -18,18 +18,20 @@ final class FollowerListViewController: UIViewController {
     private var hasMoreFollowers = true
     private var followerListСollectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, FollowerModel>!
+    private var filteredFollowers: [FollowerModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
         configureCollectionView()
+        configureSearchController()
         getFollowers(username: username, page: page)
         configureDataSource()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func style() {
@@ -45,6 +47,16 @@ final class FollowerListViewController: UIViewController {
         followerListСollectionView.delegate = self
         followerListСollectionView.register(FollowerListCollectionViewCell.self,
                                             forCellWithReuseIdentifier: FollowerListCollectionViewCell.identifier)
+    }
+    
+    private func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search for a username"
+        navigationItem.searchController = searchController
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
     }
     
     private func getFollowers(username: String, page: Int) {
@@ -69,7 +81,7 @@ final class FollowerListViewController: UIViewController {
                     }
                     return
                 }
-                self.updateData()
+                self.updateData(on: self.followers)
                 
             case .failure(let error):
                 self.presentAlertOnMainThread(title: "Bad Stuff Happened",
@@ -89,7 +101,7 @@ final class FollowerListViewController: UIViewController {
         })
     }
     
-    private func updateData() {
+    private func updateData(on followers: [FollowerModel]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, FollowerModel>()
         snapshot.appendSections([.main])
         snapshot.appendItems(followers)
@@ -101,7 +113,8 @@ final class FollowerListViewController: UIViewController {
 
 // MARK: - UICollectionViewDelegate
 extension FollowerListViewController: UICollectionViewDelegate {
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView,
+                                  willDecelerate decelerate: Bool) {
         // offsetY - how far scroll
         // contentHeight - all height of all users
         // height - heigt of the screen
@@ -114,5 +127,30 @@ extension FollowerListViewController: UICollectionViewDelegate {
             page += 1
             getFollowers(username: username, page: page)
         }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        navigationItem.hidesSearchBarWhenScrolling = true
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+extension FollowerListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text,
+              !filter.isEmpty else {
+            return
+        }
+        filteredFollowers = followers.filter {
+            $0.login.lowercased().contains(filter.lowercased())
+        }
+        updateData(on: filteredFollowers)
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension FollowerListViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateData(on: followers)
     }
 }
