@@ -29,6 +29,7 @@
 		9903BADB28983A450013A5CB /* FollowerProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BADA28983A450013A5CB /* FollowerProfileImage.swift */; };
 		9903BADF28986F420013A5CB /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BADE28986F420013A5CB /* UIHelper.swift */; };
 		9903BAE128988FB00013A5CB /* NoFollowersEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903BAE028988FB00013A5CB /* NoFollowersEmptyView.swift */; };
+		99E6A0A8289961B200F39D21 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E6A0A7289961B200F39D21 /* UserInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		9903BADA28983A450013A5CB /* FollowerProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerProfileImage.swift; sourceTree = "<group>"; };
 		9903BADE28986F420013A5CB /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		9903BAE028988FB00013A5CB /* NoFollowersEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoFollowersEmptyView.swift; sourceTree = "<group>"; };
+		99E6A0A7289961B200F39D21 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				9903BAD2289823B30013A5CB /* Persistence */,
 				9903BAB228975B890013A5CB /* Search */,
 				9903BAC92897FCA40013A5CB /* FollowerList */,
+				99E6A0A52899617E00F39D21 /* UserInfo */,
 				9903BAB328975B960013A5CB /* Favorites */,
 				9903BAD528982DE80013A5CB /* Utilities */,
 				9903BAC62897F2970013A5CB /* Extensions */,
@@ -275,6 +278,22 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		99E6A0A52899617E00F39D21 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				99E6A0A62899619000F39D21 /* Controller */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		99E6A0A62899619000F39D21 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				99E6A0A7289961B200F39D21 /* UserInfoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -346,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9903BAC82897F2A90013A5CB /* UIViewController+Extension.swift in Sources */,
+				99E6A0A8289961B200F39D21 /* UserInfoViewController.swift in Sources */,
 				9903BAE128988FB00013A5CB /* NoFollowersEmptyView.swift in Sources */,
 				9903BADB28983A450013A5CB /* FollowerProfileImage.swift in Sources */,
 				9903BABD289767210013A5CB /* FollowerListViewController.swift in Sources */,
