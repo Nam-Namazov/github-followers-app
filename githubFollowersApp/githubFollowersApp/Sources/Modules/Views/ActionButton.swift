@@ -1,5 +1,5 @@
 //
-//  GetFollowersButton.swift
+//  ActionButton.swift
 //  githubFollowersApp
 //
 //  Created by Намик on 8/1/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class GetFollowersButton: UIButton {
+final class ActionButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,6 +23,11 @@ final class GetFollowersButton: UIButton {
         self.backgroundColor = backGroundColor
         self.setTitle(title, for: .normal)
         configure()
+    }
+    
+    func set(backgroundColor: UIColor, title: String) {
+        self.backgroundColor = backgroundColor
+        setTitle(title, for: .normal)
     }
     
     private func configure() {
