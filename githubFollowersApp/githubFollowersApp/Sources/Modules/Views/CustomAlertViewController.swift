@@ -21,7 +21,7 @@ final class CustomAlertViewController: UIViewController {
     private let errorMessageBodyLabel = BodyLabel(textAlignment: .center)
     private let errorTitleLabel = TitleLabel(textAlignment: .center,
                                                           fontSize: 20)
-    private let actionOkayButton = GetFollowersButton(backGroundColor: .systemPink,
+    private let actionOkayButton = ActionButton(backGroundColor: .systemPink,
                                           title: "Ok")
     private var alertTitle: String?
     private var message: String?

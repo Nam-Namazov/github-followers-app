@@ -21,7 +21,7 @@ final class SearchViewController: UIViewController {
     
     private let enterUsernameTextField = UsernameTextField()
     
-    private let getFollowersButton = GetFollowersButton(backGroundColor: .systemGreen,
+    private let getFollowersButton = ActionButton(backGroundColor: .systemGreen,
                                                         title: "Get Followers")
     
     override func viewDidLoad() {
