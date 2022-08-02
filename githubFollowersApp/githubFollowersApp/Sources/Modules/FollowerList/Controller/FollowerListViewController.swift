@@ -16,9 +16,10 @@ final class FollowerListViewController: UIViewController {
     private var followers: [FollowerModel] = []
     private var page = 1
     private var hasMoreFollowers = true
-    private var followerListСollectionView: UICollectionView!
+    private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<Section, FollowerModel>!
     private var filteredFollowers: [FollowerModel] = []
+    private var isSearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,12 @@ final class FollowerListViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        followerListСollectionView = UICollectionView(frame: view.bounds,
+        collectionView = UICollectionView(frame: view.bounds,
                                                       collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
-        view.addSubview(followerListСollectionView)
-        followerListСollectionView.backgroundColor = .systemBackground
-        followerListСollectionView.delegate = self
-        followerListСollectionView.register(FollowerListCollectionViewCell.self,
+        view.addSubview(collectionView)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.delegate = self
+        collectionView.register(FollowerListCollectionViewCell.self,
                                             forCellWithReuseIdentifier: FollowerListCollectionViewCell.identifier)
     }
     
@@ -92,7 +93,7 @@ final class FollowerListViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, FollowerModel>(collectionView: followerListСollectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Section, FollowerModel>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, follower) -> UICollectionViewCell? in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerListCollectionViewCell.identifier, for: indexPath) as? FollowerListCollectionViewCell else {
                 return UICollectionViewCell()
             }
@@ -132,6 +133,17 @@ extension FollowerListViewController: UICollectionViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         navigationItem.hidesSearchBarWhenScrolling = true
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let activeArray = isSearching ? filteredFollowers : followers
+        let follower = activeArray[indexPath.item]
+        
+        let userInfoViewController = UserInfoViewController()
+        userInfoViewController.username = follower.login
+        let navController = UINavigationController(rootViewController: userInfoViewController)
+        
+        present(navController, animated: true)
+    }
 }
 
 // MARK: - UISearchResultsUpdating
@@ -141,6 +153,7 @@ extension FollowerListViewController: UISearchResultsUpdating {
               !filter.isEmpty else {
             return
         }
+        isSearching = true
         filteredFollowers = followers.filter {
             $0.login.lowercased().contains(filter.lowercased())
         }
@@ -151,6 +164,7 @@ extension FollowerListViewController: UISearchResultsUpdating {
 // MARK: - UISearchBarDelegate
 extension FollowerListViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
         updateData(on: followers)
     }
 }
