@@ -34,6 +34,8 @@
 		994CFD3228998DBB002A28AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD3128998DBB002A28AE /* Constants.swift */; };
 		994CFD342899A01C002A28AE /* FollowerProfileItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD332899A01C002A28AE /* FollowerProfileItemView.swift */; };
 		994CFD362899A56C002A28AE /* ItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD352899A56C002A28AE /* ItemInfoViewController.swift */; };
+		994CFD382899AA39002A28AE /* RepositoryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD372899AA39002A28AE /* RepositoryItemViewController.swift */; };
+		994CFD3A2899ACEC002A28AE /* ItemGetFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD392899ACEC002A28AE /* ItemGetFollowersViewController.swift */; };
 		99E6A0A8289961B200F39D21 /* FollowerUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E6A0A7289961B200F39D21 /* FollowerUserInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		994CFD3128998DBB002A28AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		994CFD332899A01C002A28AE /* FollowerProfileItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerProfileItemView.swift; sourceTree = "<group>"; };
 		994CFD352899A56C002A28AE /* ItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
+		994CFD372899AA39002A28AE /* RepositoryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryItemViewController.swift; sourceTree = "<group>"; };
+		994CFD392899ACEC002A28AE /* ItemGetFollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemGetFollowersViewController.swift; sourceTree = "<group>"; };
 		99E6A0A7289961B200F39D21 /* FollowerUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerUserInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,7 +165,6 @@
 		9903BAAE289758690013A5CB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9903BAAF2897589C0013A5CB /* ActionButton.swift */,
 				9903BAB828975C3C0013A5CB /* UsernameTextField.swift */,
 			);
 			path = View;
@@ -246,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				9903BAD82898379F0013A5CB /* FollowerListCollectionViewCell.swift */,
-				9903BADA28983A450013A5CB /* FollowerProfileImage.swift */,
 				9903BAE028988FB00013A5CB /* NoFollowersEmptyView.swift */,
 			);
 			path = View;
@@ -289,11 +291,22 @@
 		994CFD2E28998149002A28AE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9903BADA28983A450013A5CB /* FollowerProfileImage.swift */,
 				9903BAC42897E9440013A5CB /* CustomAlertViewController.swift */,
+				9903BAAF2897589C0013A5CB /* ActionButton.swift */,
 				9903BABE2897E6C50013A5CB /* TitleLabel.swift */,
 				9903BAC02897E8470013A5CB /* BodyLabel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		994CFD3B2899AF53002A28AE /* SubclassOfItemInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				994CFD372899AA39002A28AE /* RepositoryItemViewController.swift */,
+				994CFD392899ACEC002A28AE /* ItemGetFollowersViewController.swift */,
+			);
+			path = SubclassOfItemInfoViewController;
 			sourceTree = "<group>";
 		};
 		99E6A0A52899617E00F39D21 /* FollowerUserInfo */ = {
@@ -310,7 +323,8 @@
 			isa = PBXGroup;
 			children = (
 				99E6A0A7289961B200F39D21 /* FollowerUserInfoViewController.swift */,
-				994CFD2F289982D0002A28AE /* FollowerProfileHeaderViewController.swift */,
+				994CFD352899A56C002A28AE /* ItemInfoViewController.swift */,
+				994CFD3B2899AF53002A28AE /* SubclassOfItemInfoViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -319,8 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				994CFD2C28997A91002A28AE /* SecondaryTitleLabel.swift */,
+				994CFD2F289982D0002A28AE /* FollowerProfileHeaderViewController.swift */,
 				994CFD332899A01C002A28AE /* FollowerProfileItemView.swift */,
-				994CFD352899A56C002A28AE /* ItemInfoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -407,11 +421,13 @@
 				99E6A0A8289961B200F39D21 /* FollowerUserInfoViewController.swift in Sources */,
 				9903BAE128988FB00013A5CB /* NoFollowersEmptyView.swift in Sources */,
 				9903BADB28983A450013A5CB /* FollowerProfileImage.swift in Sources */,
+				994CFD382899AA39002A28AE /* RepositoryItemViewController.swift in Sources */,
 				9903BABD289767210013A5CB /* FollowerListViewController.swift in Sources */,
 				9903BAB02897589C0013A5CB /* ActionButton.swift in Sources */,
 				9903BAA628974E1E0013A5CB /* FavoritesListViewController.swift in Sources */,
 				9903BAC52897E9440013A5CB /* CustomAlertViewController.swift in Sources */,
 				9903BACF28980A390013A5CB /* FollowerModel.swift in Sources */,
+				994CFD3A2899ACEC002A28AE /* ItemGetFollowersViewController.swift in Sources */,
 				9903BAC12897E8470013A5CB /* BodyLabel.swift in Sources */,
 				9903BAA328974D990013A5CB /* SearchViewController.swift in Sources */,
 				9903BAD128980B960013A5CB /* FollowerProfileModel.swift in Sources */,

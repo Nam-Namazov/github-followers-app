@@ -7,16 +7,28 @@
 
 import UIKit
 
-final class ItemInfoViewController: UIViewController {
-    private let stackView = UIStackView()
-    private let firstItemInfoView = FollowerProfileItemView()
-    private let secondItemInfoView = FollowerProfileItemView()
-    private let actionButton = ActionButton()
+class ItemInfoViewController: UIViewController {
+    let stackView = UIStackView()
+    let firstItemInfoView = FollowerProfileItemView()
+    let secondItemInfoView = FollowerProfileItemView()
+    let actionButton = ActionButton()
+    
+    var profile: FollowerProfileModel!
+    
+    init(profile: FollowerProfileModel) {
+        super.init(nibName: nil, bundle: nil)
+        self.profile = profile
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
         setupLayout()
+        configureStackView()
     }
     
     private func configureBackgroundView() {

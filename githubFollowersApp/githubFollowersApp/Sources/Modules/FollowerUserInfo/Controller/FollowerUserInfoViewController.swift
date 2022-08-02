@@ -34,6 +34,8 @@ final class FollowerUserInfoViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.add(childViewController: FollowerProfileHeaderViewController(profile: profile),
                              to: self.headerView)
+                    self.add(childViewController: RepositoryItemViewController(profile: profile), to: self.firstItemView)
+                    self.add(childViewController: ItemGetFollowersViewController(profile: profile), to: self.secondItemView)
                 }
                 
             case .failure(let error):
