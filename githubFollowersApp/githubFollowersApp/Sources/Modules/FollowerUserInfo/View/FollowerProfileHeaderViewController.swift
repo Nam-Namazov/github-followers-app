@@ -63,20 +63,20 @@ final class FollowerProfileHeaderViewController: UIViewController {
         NSLayoutConstraint.activate([
             // profileImageView
             profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             profileImageView.widthAnchor.constraint(equalToConstant: 90),
             profileImageView.heightAnchor.constraint(equalToConstant: 90),
             
             // loginLabel
             loginLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor),
             loginLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 12),
-            loginLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            loginLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             loginLabel.heightAnchor.constraint(equalToConstant: 38),
             
             // nameLabel
             nameLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor, constant: 8),
             nameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 12),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             nameLabel.heightAnchor.constraint(equalToConstant: 20),
             
             // locationImageView
@@ -88,13 +88,13 @@ final class FollowerProfileHeaderViewController: UIViewController {
             // locationLabel
             locationLabel.centerYAnchor.constraint(equalTo: locationImageView.centerYAnchor),
             locationLabel.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: 5),
-            locationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            locationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             locationLabel.heightAnchor.constraint(equalToConstant: 20),
             
             // bioLabel
             bioLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 12),
             bioLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor),
-            bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bioLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }

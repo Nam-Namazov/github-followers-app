@@ -32,6 +32,7 @@
 		994CFD2D28997A91002A28AE /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD2C28997A91002A28AE /* SecondaryTitleLabel.swift */; };
 		994CFD30289982D0002A28AE /* FollowerProfileHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD2F289982D0002A28AE /* FollowerProfileHeaderViewController.swift */; };
 		994CFD3228998DBB002A28AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD3128998DBB002A28AE /* Constants.swift */; };
+		994CFD342899A01C002A28AE /* FollowerProfileItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD332899A01C002A28AE /* FollowerProfileItemView.swift */; };
 		99E6A0A8289961B200F39D21 /* FollowerUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E6A0A7289961B200F39D21 /* FollowerUserInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		994CFD2C28997A91002A28AE /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		994CFD2F289982D0002A28AE /* FollowerProfileHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerProfileHeaderViewController.swift; sourceTree = "<group>"; };
 		994CFD3128998DBB002A28AE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		994CFD332899A01C002A28AE /* FollowerProfileItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerProfileItemView.swift; sourceTree = "<group>"; };
 		99E6A0A7289961B200F39D21 /* FollowerUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerUserInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -315,6 +317,7 @@
 			children = (
 				994CFD2C28997A91002A28AE /* SecondaryTitleLabel.swift */,
 				994CFD2F289982D0002A28AE /* FollowerProfileHeaderViewController.swift */,
+				994CFD332899A01C002A28AE /* FollowerProfileItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				994CFD30289982D0002A28AE /* FollowerProfileHeaderViewController.swift in Sources */,
 				9903BAA8289753210013A5CB /* MainTabBarController.swift in Sources */,
 				9903BA8F2897460F0013A5CB /* AppDelegate.swift in Sources */,
+				994CFD342899A01C002A28AE /* FollowerProfileItemView.swift in Sources */,
 				9903BAD728982DF90013A5CB /* GetFollowersErrorMessage.swift in Sources */,
 				9903BAD4289823BE0013A5CB /* NetworkManager.swift in Sources */,
 				9903BADF28986F420013A5CB /* UIHelper.swift in Sources */,
