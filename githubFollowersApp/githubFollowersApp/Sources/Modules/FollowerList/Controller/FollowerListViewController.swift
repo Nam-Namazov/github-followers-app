@@ -28,10 +28,10 @@ final class FollowerListViewController: UIViewController {
         getFollowers(username: username, page: page)
         configureDataSource()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func style() {
@@ -56,6 +56,7 @@ final class FollowerListViewController: UIViewController {
         searchController.searchBar.placeholder = "Search for a username"
         navigationItem.searchController = searchController
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
     }
     
     private func getFollowers(username: String, page: Int) {
@@ -126,6 +127,10 @@ extension FollowerListViewController: UICollectionViewDelegate {
             page += 1
             getFollowers(username: username, page: page)
         }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        navigationItem.hidesSearchBarWhenScrolling = true
     }
 }
 

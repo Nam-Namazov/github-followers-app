@@ -33,11 +33,6 @@ final class SearchViewController: UIViewController {
         addTargetConfigure()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
     private func dismissKeyboardWhenUserTappedAtViewTapGesture() {
         let tap = UITapGestureRecognizer(target: self.view,
                                          action: #selector(UIView.endEditing(_:)))
@@ -48,7 +43,18 @@ final class SearchViewController: UIViewController {
         enterUsernameTextField.delegate = self
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     private func style() {
+//        navigationController?.setNavigationBarHidden(true, animated: true)
         view.backgroundColor = .systemBackground
         title = "Search"
     }
