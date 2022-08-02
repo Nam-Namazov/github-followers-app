@@ -1,5 +1,5 @@
 //
-//  GetFollowersErrorLabel.swift
+//  TitleLabel.swift
 //  githubFollowersApp
 //
 //  Created by Намик on 8/1/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CustomTitleOfErrorLabel: UILabel {
+final class TitleLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()

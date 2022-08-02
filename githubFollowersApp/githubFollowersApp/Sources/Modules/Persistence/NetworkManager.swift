@@ -58,7 +58,7 @@ final class NetworkManager {
     }
     
     func getUserInfo(for username: String,
-                      completion: @escaping (Result<UserModel,
+                      completion: @escaping (Result<FollowerProfileModel,
                                              GetFollowersErrorMessage>) -> Void) {
         let endpoint = baseURL + "\(username)"
         
@@ -87,7 +87,7 @@ final class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let user = try decoder.decode(UserModel.self,
+                let user = try decoder.decode(FollowerProfileModel.self,
                                                    from: data)
                 completion(.success(user))
             } catch {

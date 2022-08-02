@@ -1,5 +1,5 @@
 //
-//  SearchVC.swift
+//  SearchViewController.swift
 //  githubFollowersApp
 //
 //  Created by Намик on 8/1/22.
@@ -19,7 +19,7 @@ final class SearchViewController: UIViewController {
         return logoImageView
     }()
     
-    private let enterUsernameTextField = CustomLoginTextField()
+    private let enterUsernameTextField = UsernameTextField()
     
     private let getFollowersButton = GetFollowersButton(backGroundColor: .systemGreen,
                                                         title: "Get Followers")

@@ -11,7 +11,7 @@ final class FollowerListCollectionViewCell: UICollectionViewCell {
     static let identifier = "FollowerListCollectionViewCell"
     
     private let avatarImageView = FollowerProfileImage(frame: .zero)
-    private let usernameLabel = CustomTitleOfErrorLabel(textAlignment: .center,
+    private let usernameLabel = TitleLabel(textAlignment: .center,
                                                 fontSize: 16)
     
     override init(frame: CGRect) {

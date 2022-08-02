@@ -1,13 +1,13 @@
 //
-//  GetFollowersBodyLabel.swift
+//  SecondaryTitleLabel.swift
 //  githubFollowersApp
 //
-//  Created by Намик on 8/1/22.
+//  Created by Намик on 8/2/22.
 //
 
 import UIKit
 
-final class CustomErrorMessageBodyLabel: UILabel {
+final class SecondaryTitleLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -17,18 +17,18 @@ final class CustomErrorMessageBodyLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(textAlignment: NSTextAlignment) {
+    init(fontSize: CGFloat) {
         super.init(frame: .zero)
-        self.textAlignment = textAlignment
+        self.font = UIFont.systemFont(ofSize: fontSize,
+                                      weight: .medium)
         configure()
     }
     
     private func configure() {
         textColor = .secondaryLabel
-        font = UIFont.preferredFont(forTextStyle: .body)
         adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.75
-        lineBreakMode = .byWordWrapping
+        minimumScaleFactor = 0.90
+        lineBreakMode = .byTruncatingTail
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

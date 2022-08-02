@@ -1,5 +1,5 @@
 //
-//  LoginTextField.swift
+//  UsernameTextField.swift
 //  githubFollowersApp
 //
 //  Created by Намик on 8/1/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CustomLoginTextField: UITextField {
+final class UsernameTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()

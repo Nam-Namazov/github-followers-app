@@ -8,7 +8,7 @@
 import UIKit
 
 final class NoFollowersEmptyView: UIView {
-    private let noFollowersTextLabel = CustomTitleOfErrorLabel(textAlignment: .center,
+    private let noFollowersTextLabel = TitleLabel(textAlignment: .center,
                                                                fontSize: 28)
     private let emptyStateLogoImageView = UIImageView()
     override init(frame: CGRect) {

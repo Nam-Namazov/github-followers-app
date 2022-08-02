@@ -1,5 +1,5 @@
 //
-//  UserModel.swift
+//  FollowerProfileModel.swift
 //  githubFollowersApp
 //
 //  Created by Намик on 8/1/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserModel: Codable {
+struct FollowerProfileModel: Codable {
     let login: String
     let avatarUrl: String
     var name: String?

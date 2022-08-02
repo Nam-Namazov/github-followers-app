@@ -1,5 +1,5 @@
 //
-//  GetFollowersCustomAlertViewController.swift
+//  CustomAlertViewController.swift
 //  githubFollowersApp
 //
 //  Created by Намик on 8/1/22.
@@ -18,8 +18,8 @@ final class CustomAlertViewController: UIViewController {
         return containerView
     }()
     
-    private let errorMessageBodyLabel = CustomErrorMessageBodyLabel(textAlignment: .center)
-    private let errorTitleLabel = CustomTitleOfErrorLabel(textAlignment: .center,
+    private let errorMessageBodyLabel = BodyLabel(textAlignment: .center)
+    private let errorTitleLabel = TitleLabel(textAlignment: .center,
                                                           fontSize: 20)
     private let actionOkayButton = GetFollowersButton(backGroundColor: .systemPink,
                                           title: "Ok")
