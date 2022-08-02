@@ -12,6 +12,7 @@ final class FollowerUserInfoViewController: UIViewController {
     private let headerView = UIView()
     private let firstItemView = UIView()
     private let secondItemView = UIView()
+    private let githubSinceDateLabel = BodyLabel(textAlignment: .center)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ final class FollowerUserInfoViewController: UIViewController {
                              to: self.firstItemView)
                     self.add(childViewController: ItemGetFollowersViewController(profile: profile),
                              to: self.secondItemView)
+                    self.githubSinceDateLabel.text = "〠 Github since \(profile.createdAt.convertToDisplayFormat())"
                 }
                 
             case .failure(let error):
@@ -51,7 +53,8 @@ final class FollowerUserInfoViewController: UIViewController {
     private func setupLayout() {
         let subviews = [headerView,
                         firstItemView,
-                        secondItemView]
+                        secondItemView,
+                        githubSinceDateLabel]
         
         for subview in subviews {
             view.addSubview(subview)
@@ -76,7 +79,11 @@ final class FollowerUserInfoViewController: UIViewController {
             
             // secondItemView
             secondItemView.topAnchor.constraint(equalTo: firstItemView.bottomAnchor, constant: 20),
-            secondItemView.heightAnchor.constraint(equalToConstant: 140)
+            secondItemView.heightAnchor.constraint(equalToConstant: 140),
+            
+            //githubSinceDateLabel
+            githubSinceDateLabel.topAnchor.constraint(equalTo: secondItemView.bottomAnchor, constant: 20),
+            githubSinceDateLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
     

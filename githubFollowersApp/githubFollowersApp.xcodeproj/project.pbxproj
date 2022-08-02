@@ -36,6 +36,8 @@
 		994CFD362899A56C002A28AE /* ItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD352899A56C002A28AE /* ItemInfoViewController.swift */; };
 		994CFD382899AA39002A28AE /* RepositoryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD372899AA39002A28AE /* RepositoryItemViewController.swift */; };
 		994CFD3A2899ACEC002A28AE /* ItemGetFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD392899ACEC002A28AE /* ItemGetFollowersViewController.swift */; };
+		994CFD3D2899DDC7002A28AE /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD3C2899DDC7002A28AE /* Date+Extension.swift */; };
+		994CFD3F2899DE1B002A28AE /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994CFD3E2899DE1B002A28AE /* String+Extension.swift */; };
 		99E6A0A8289961B200F39D21 /* FollowerUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E6A0A7289961B200F39D21 /* FollowerUserInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,8 @@
 		994CFD352899A56C002A28AE /* ItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
 		994CFD372899AA39002A28AE /* RepositoryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryItemViewController.swift; sourceTree = "<group>"; };
 		994CFD392899ACEC002A28AE /* ItemGetFollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemGetFollowersViewController.swift; sourceTree = "<group>"; };
+		994CFD3C2899DDC7002A28AE /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		994CFD3E2899DE1B002A28AE /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		99E6A0A7289961B200F39D21 /* FollowerUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerUserInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				9903BAC72897F2A90013A5CB /* UIViewController+Extension.swift */,
+				994CFD3C2899DDC7002A28AE /* Date+Extension.swift */,
+				994CFD3E2899DE1B002A28AE /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -433,6 +439,7 @@
 				9903BAD128980B960013A5CB /* FollowerProfileModel.swift in Sources */,
 				9903BABF2897E6C50013A5CB /* TitleLabel.swift in Sources */,
 				994CFD30289982D0002A28AE /* FollowerProfileHeaderViewController.swift in Sources */,
+				994CFD3D2899DDC7002A28AE /* Date+Extension.swift in Sources */,
 				9903BAA8289753210013A5CB /* MainTabBarController.swift in Sources */,
 				9903BA8F2897460F0013A5CB /* AppDelegate.swift in Sources */,
 				994CFD342899A01C002A28AE /* FollowerProfileItemView.swift in Sources */,
@@ -444,6 +451,7 @@
 				9903BA912897460F0013A5CB /* SceneDelegate.swift in Sources */,
 				9903BAB928975C3C0013A5CB /* UsernameTextField.swift in Sources */,
 				9903BAD92898379F0013A5CB /* FollowerListCollectionViewCell.swift in Sources */,
+				994CFD3F2899DE1B002A28AE /* String+Extension.swift in Sources */,
 				994CFD3228998DBB002A28AE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
