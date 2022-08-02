@@ -23,6 +23,5 @@ final class ItemGetFollowersViewController: ItemInfoViewController {
         
         actionButton.set(backgroundColor: .systemGreen,
                          title: "Get Followers")
-        
     }
 }

@@ -9,7 +9,6 @@ import UIKit
 
 final class FollowerProfileHeaderViewController: UIViewController {
     private var profile: FollowerProfileModel!
-    
     private let profileImageView = FollowerProfileImage(frame: .zero)
     private let loginLabel = TitleLabel(textAlignment: .left,
                                                           fontSize: 34)

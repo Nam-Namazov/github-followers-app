@@ -12,6 +12,7 @@ final class FollowerUserInfoViewController: UIViewController {
     private let headerView = UIView()
     private let firstItemView = UIView()
     private let secondItemView = UIView()
+    private let githubSinceDateLabel = BodyLabel(textAlignment: .center)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +35,11 @@ final class FollowerUserInfoViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.add(childViewController: FollowerProfileHeaderViewController(profile: profile),
                              to: self.headerView)
-                    self.add(childViewController: RepositoryItemViewController(profile: profile), to: self.firstItemView)
-                    self.add(childViewController: ItemGetFollowersViewController(profile: profile), to: self.secondItemView)
+                    self.add(childViewController: RepositoryItemViewController(profile: profile),
+                             to: self.firstItemView)
+                    self.add(childViewController: ItemGetFollowersViewController(profile: profile),
+                             to: self.secondItemView)
+                    self.githubSinceDateLabel.text = "〠 Github since \(profile.createdAt.convertToDisplayFormat())"
                 }
                 
             case .failure(let error):
@@ -49,15 +53,18 @@ final class FollowerUserInfoViewController: UIViewController {
     private func setupLayout() {
         let subviews = [headerView,
                         firstItemView,
-                        secondItemView]
+                        secondItemView,
+                        githubSinceDateLabel]
         
         for subview in subviews {
             view.addSubview(subview)
             subview.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([
-                subview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                subview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+                subview.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                 constant: 20),
+                subview.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                  constant: -20)
             ])
         }
 
@@ -72,11 +79,16 @@ final class FollowerUserInfoViewController: UIViewController {
             
             // secondItemView
             secondItemView.topAnchor.constraint(equalTo: firstItemView.bottomAnchor, constant: 20),
-            secondItemView.heightAnchor.constraint(equalToConstant: 140)
+            secondItemView.heightAnchor.constraint(equalToConstant: 140),
+            
+            //githubSinceDateLabel
+            githubSinceDateLabel.topAnchor.constraint(equalTo: secondItemView.bottomAnchor, constant: 20),
+            githubSinceDateLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
     
-    private func add(childViewController: UIViewController, to containerView: UIView) {
+    private func add(childViewController: UIViewController,
+                     to containerView: UIView) {
         addChild(childViewController)
         containerView.addSubview(childViewController.view)
         childViewController.view.frame = containerView.bounds

@@ -62,7 +62,5 @@ class ItemInfoViewController: UIViewController {
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
-        
     }
-
 }
