@@ -230,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				9903BACE28980A390013A5CB /* FollowerModel.swift */,
-				9903BAD028980B960013A5CB /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -281,6 +280,8 @@
 		99E6A0A52899617E00F39D21 /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				99E6A0AA28996B1400F39D21 /* Model */,
+				99E6A0A928996B0D00F39D21 /* View */,
 				99E6A0A62899619000F39D21 /* Controller */,
 			);
 			path = UserInfo;
@@ -292,6 +293,21 @@
 				99E6A0A7289961B200F39D21 /* UserInfoViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		99E6A0A928996B0D00F39D21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		99E6A0AA28996B1400F39D21 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9903BAD028980B960013A5CB /* UserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
