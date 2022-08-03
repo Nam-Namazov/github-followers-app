@@ -31,6 +31,7 @@ final class UsernameTextField: UITextField {
         autocorrectionType = .no
         placeholder = "Enter a username"
         returnKeyType = .go
+        clearButtonMode = .whileEditing
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

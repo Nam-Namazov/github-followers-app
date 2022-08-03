@@ -140,8 +140,8 @@
 		9903BAAB2897535C0013A5CB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				9903BACD2897FCCB0013A5CB /* TabBar */,
 				9903BAD2289823B30013A5CB /* Persistence */,
+				9903BACD2897FCCB0013A5CB /* TabBarController */,
 				994CFD2E28998149002A28AE /* Views */,
 				9903BAB228975B890013A5CB /* Search */,
 				9903BAC92897FCA40013A5CB /* FollowerList */,
@@ -272,12 +272,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		9903BACD2897FCCB0013A5CB /* TabBar */ = {
+		9903BACD2897FCCB0013A5CB /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
 				9903BAA7289753210013A5CB /* MainTabBarController.swift */,
 			);
-			path = TabBar;
+			path = TabBarController;
 			sourceTree = "<group>";
 		};
 		9903BAD2289823B30013A5CB /* Persistence */ = {

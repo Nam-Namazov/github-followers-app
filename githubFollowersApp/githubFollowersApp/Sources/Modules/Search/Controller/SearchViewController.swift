@@ -11,10 +11,11 @@ final class SearchViewController: UIViewController {
     var isUsernameIsEmpty: Bool {
         return !enterUsernameTextField.text!.isEmpty
     }
+    var logoImageViewConstraint: NSLayoutConstraint!
     
     private let logoImageView: UIImageView = {
         let logoImageView = UIImageView()
-        logoImageView.image = UIImage(named: "gh-logo")
+        logoImageView.image = Images.ghLogo
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         return logoImageView
     }()
@@ -23,7 +24,6 @@ final class SearchViewController: UIViewController {
     
     private let getFollowersButton = ActionButton(backGroundColor: .systemGreen,
                                                         title: "Get Followers")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
@@ -34,7 +34,7 @@ final class SearchViewController: UIViewController {
     }
     
     private func dismissKeyboardWhenUserTappedAtViewTapGesture() {
-        let tap = UITapGestureRecognizer(target: self.view,
+        let tap = UITapGestureRecognizer(target: view,
                                          action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
     }
@@ -50,11 +50,11 @@ final class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        enterUsernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     private func style() {
-//        navigationController?.setNavigationBarHidden(true, animated: true)
         view.backgroundColor = .systemBackground
         title = "Search"
     }
@@ -65,10 +65,12 @@ final class SearchViewController: UIViewController {
         view.addSubview(enterUsernameTextField)
         view.addSubview(getFollowersButton)
         
+        let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+        logoImageViewConstraint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
+        logoImageViewConstraint.isActive = true
+        
         NSLayoutConstraint.activate([
             // logoImageView
-            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                               constant: 80),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.heightAnchor.constraint(equalToConstant: 200),
             logoImageView.widthAnchor.constraint(equalToConstant: 200),
@@ -107,10 +109,10 @@ final class SearchViewController: UIViewController {
                                      buttonTitle: "Ok")
             return
         }
+        enterUsernameTextField.resignFirstResponder()
         
-        let followerListViewController = FollowerListViewController()
-        followerListViewController.username = enterUsernameTextField.text
-        followerListViewController.title = enterUsernameTextField.text
+        let followerListViewController = FollowerListViewController(username: enterUsernameTextField.text!)
+        
         navigationController?.pushViewController(followerListViewController,
                                                  animated: true)
     }
