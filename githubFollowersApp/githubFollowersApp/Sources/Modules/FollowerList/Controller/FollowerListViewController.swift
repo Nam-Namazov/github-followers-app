@@ -32,6 +32,7 @@ final class FollowerListViewController: UIViewController {
         configureSearchController()
         getFollowers(username: username, page: page)
         configureDataSource()
+        configureRightNavBarItemButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -113,6 +114,47 @@ final class FollowerListViewController: UIViewController {
         snapshot.appendItems(followers)
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true)
+        }
+    }
+    
+    private func configureRightNavBarItemButton() {
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add,
+                                        target: self,
+                                        action: #selector(handleAddTapButton))
+        navigationItem.rightBarButtonItem = addButton
+    }
+    
+    @objc private func handleAddTapButton() {
+        showLoadingView()
+        
+        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
+            guard let self = self else { return }
+            self.dismissLoadingView()
+            
+            switch result {
+            case .success(let user):
+                let favorite = FollowerModel(login: user.login,
+                                             avatarUrl: user.avatarUrl)
+                
+                PersistenceManager.updateWith(favorite: favorite,
+                                              actionType: .add) { [weak self] error in
+                    guard let self = self,
+                          let error = error else {
+                        self?.presentAlertOnMainThread(title: "Success",
+                                                       message: "You have successfully favorited this user 🥳",
+                                                       buttonTitle: "Good")
+                        return
+                    }
+                    self.presentAlertOnMainThread(title: "Something went wrong",
+                                                  message: error.rawValue,
+                                                  buttonTitle: "Ok")
+                }
+                
+            case .failure(let error):
+                self.presentAlertOnMainThread(title: "Something went wrong",
+                                              message: error.rawValue,
+                                              buttonTitle: "Ok")
+            }
         }
     }
 }
