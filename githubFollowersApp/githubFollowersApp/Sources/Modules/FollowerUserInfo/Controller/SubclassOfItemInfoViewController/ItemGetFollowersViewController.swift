@@ -14,6 +14,10 @@ final class ItemGetFollowersViewController: ItemInfoViewController {
         configureItems()
     }
     
+    override func actionButtonTapped() {
+        delegate?.didTapGetFollowers(for: profile)
+    }
+    
     private func configureItems() {
         firstItemInfoView.set(itemInfoType: .followers,
                               withCount: profile.followers)
