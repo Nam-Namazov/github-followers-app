@@ -87,9 +87,7 @@ extension FavoritesListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let favorite = favorites[indexPath.row]
-        let followerListViewController = FollowerListViewController()
-        followerListViewController.username = favorite.login
-        followerListViewController.title = favorite.login
+        let followerListViewController = FollowerListViewController(username: favorite.login)
         
         navigationController?.pushViewController(followerListViewController,
                                                  animated: true)
