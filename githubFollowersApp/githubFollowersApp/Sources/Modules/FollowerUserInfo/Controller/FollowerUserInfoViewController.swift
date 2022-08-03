@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol FollowerUserInfoViewControllerDelegate: AnyObject {
+    func didTapGithubProfile(for profile: FollowerProfileModel)
+    func didTapGetFollowers(for profile: FollowerProfileModel)
+}
+
 final class FollowerUserInfoViewController: UIViewController {
     var username: String!
     private let headerView = UIView()
     private let firstItemView = UIView()
     private let secondItemView = UIView()
     private let githubSinceDateLabel = BodyLabel(textAlignment: .center)
+    weak var delegate: FollowerListViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +39,8 @@ final class FollowerUserInfoViewController: UIViewController {
             switch result {
             case .success(let profile):
                 DispatchQueue.main.async {
-                    self.add(childViewController: FollowerProfileHeaderViewController(profile: profile),
-                             to: self.headerView)
-                    self.add(childViewController: RepositoryItemViewController(profile: profile),
-                             to: self.firstItemView)
-                    self.add(childViewController: ItemGetFollowersViewController(profile: profile),
-                             to: self.secondItemView)
-                    self.githubSinceDateLabel.text = "〠 Github since \(profile.createdAt.convertToDisplayFormat())"
+                    self.configureUIElements(with: profile)
                 }
-                
             case .failure(let error):
                 self.presentAlertOnMainThread(title: "Something went wrong",
                                               message: error.rawValue,
@@ -49,6 +48,25 @@ final class FollowerUserInfoViewController: UIViewController {
             }
         }
     }
+    
+    private func configureUIElements(with profile: FollowerProfileModel) {
+        let repoItemViewController = RepositoryItemViewController(profile: profile)
+        repoItemViewController.delegate = self
+        
+        let itemGetFollowersViewController = ItemGetFollowersViewController(profile: profile)
+        itemGetFollowersViewController.delegate = self
+        
+        self.add(childViewController: repoItemViewController,
+                 to: self.firstItemView)
+
+        self.add(childViewController: itemGetFollowersViewController,
+                 to: self.secondItemView)
+        
+        self.add(childViewController: FollowerProfileHeaderViewController(profile: profile),
+                 to: self.headerView)
+        self.githubSinceDateLabel.text = "〠 Github since \(profile.createdAt.convertToDisplayFormat())"
+    }
+    
     
     private func setupLayout() {
         let subviews = [headerView,
@@ -104,5 +122,28 @@ final class FollowerUserInfoViewController: UIViewController {
     
     @objc private func dismissViewController() {
         dismiss(animated: true)
+    }
+}
+// MARK: - FollowerUserInfoViewControllerDelegate
+extension FollowerUserInfoViewController: FollowerUserInfoViewControllerDelegate {
+    func didTapGithubProfile(for profile: FollowerProfileModel) {
+        guard let url = URL(string: profile.htmlUrl) else {
+            presentAlertOnMainThread(title: "Invalud URL",
+                                     message: "The url attached to this user is invalid",
+                                     buttonTitle: "Ok")
+            return
+        }
+        presentSafariViewController(with: url)
+    }
+    
+    func didTapGetFollowers(for profile: FollowerProfileModel) {
+        guard profile.followers != 0 else {
+            presentAlertOnMainThread(title: "No followers",
+                                     message: "This user has no followers 😢",
+                                     buttonTitle: "So sad")
+            return
+        }
+        delegate?.didRequestFollowers(for: profile.login)
+        dismissViewController()
     }
 }

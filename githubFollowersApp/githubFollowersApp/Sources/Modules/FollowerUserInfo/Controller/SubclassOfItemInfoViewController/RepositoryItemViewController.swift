@@ -14,6 +14,10 @@ final class RepositoryItemViewController: ItemInfoViewController {
         configureItems()
     }
     
+    override func actionButtonTapped() {
+        delegate?.didTapGithubProfile(for: profile)
+    }
+    
     private func configureItems() {
         firstItemInfoView.set(itemInfoType: .repos,
                               withCount: profile.publicRepos)
@@ -23,6 +27,5 @@ final class RepositoryItemViewController: ItemInfoViewController {
         
         actionButton.set(backgroundColor: .systemPurple,
                          title: "Github Profile")
-        
     }
 }

@@ -12,8 +12,8 @@ class ItemInfoViewController: UIViewController {
     let firstItemInfoView = FollowerProfileItemView()
     let secondItemInfoView = FollowerProfileItemView()
     let actionButton = ActionButton()
-    
     var profile: FollowerProfileModel!
+    weak var delegate: FollowerUserInfoViewControllerDelegate?
     
     init(profile: FollowerProfileModel) {
         super.init(nibName: nil, bundle: nil)
@@ -29,6 +29,7 @@ class ItemInfoViewController: UIViewController {
         configureBackgroundView()
         setupLayout()
         configureStackView()
+        configureActionButton()
     }
     
     private func configureBackgroundView() {
@@ -42,6 +43,17 @@ class ItemInfoViewController: UIViewController {
         
         stackView.addArrangedSubview(firstItemInfoView)
         stackView.addArrangedSubview(secondItemInfoView)
+    }
+    
+    private func configureActionButton() {
+        actionButton.addTarget(self,
+                               action: #selector(actionButtonTapped),
+                               for: .touchUpInside)
+    }
+    
+    @objc func actionButtonTapped() {
+        // override this function in subclass controllers
+        // RepositoryItemViewController and ItemGetFollowersViewController
     }
     
     private func setupLayout() {
