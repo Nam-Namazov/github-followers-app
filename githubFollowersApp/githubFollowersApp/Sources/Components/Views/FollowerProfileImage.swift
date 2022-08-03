@@ -8,7 +8,7 @@
 import UIKit
 
 final class FollowerProfileImage: UIImageView {
-    let defaultEmptyProfileImage = UIImage(named: "avatar-placeholder")
+    let defaultEmptyProfileImage = Images.avatarPlaceholder
     
     override init(frame: CGRect) {
         super.init(frame: frame)
