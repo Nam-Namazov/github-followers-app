@@ -53,9 +53,9 @@ final class CustomAlertViewController: UIViewController {
     
     private func setupLayoutAndConfigureUI() {
         view.addSubview(containerView)
-        containerView.addSubview(errorTitleLabel)
-        containerView.addSubview(actionOkayButton)
-        containerView.addSubview(errorMessageBodyLabel)
+        containerView.addSubviews(errorTitleLabel,
+                                  actionOkayButton,
+                                  errorMessageBodyLabel)
         
         NSLayoutConstraint.activate([
             // containerView

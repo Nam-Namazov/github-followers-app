@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol FollowerListViewControllerDelegate: AnyObject {
-    func didRequestFollowers(for username: String)
-}
-
 final class FollowerListViewController: DataLoadingViewController {
     enum Section {
         case main
@@ -229,7 +225,7 @@ extension FollowerListViewController: UISearchResultsUpdating {
 }
 
 // MARK: - FollowerListViewControllerDelegate
-extension FollowerListViewController: FollowerListViewControllerDelegate {
+extension FollowerListViewController: FollowerUserInfoViewControllerDelegate {
     func didRequestFollowers(for username: String) {
         self.username = username
         title = username

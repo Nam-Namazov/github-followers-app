@@ -37,8 +37,8 @@ final class FollowerListCollectionViewCell: UICollectionViewCell {
     
     private func setupLayout() {
         // addSubview
-        contentView.addSubview(avatarImageView)
-        contentView.addSubview(usernameLabel)
+        contentView.addSubviews(avatarImageView,
+                                usernameLabel)
         
         NSLayoutConstraint.activate([
             // avatarImageView

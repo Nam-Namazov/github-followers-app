@@ -7,7 +7,22 @@
 
 import UIKit
 
+protocol ItemGetFollowersViewControllerDelegate: AnyObject {
+    func didTapGetFollowers(for profiel: FollowerProfileModel )
+}
+
 final class ItemGetFollowersViewController: ItemInfoViewController {
+    weak var delegate: ItemGetFollowersViewControllerDelegate?
+    
+    init(profile: FollowerProfileModel,
+         delegate: ItemGetFollowersViewControllerDelegate) {
+        super.init(profile: profile)
+        self.delegate = delegate
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

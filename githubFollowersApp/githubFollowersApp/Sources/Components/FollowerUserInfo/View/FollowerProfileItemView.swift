@@ -53,11 +53,10 @@ final class FollowerProfileItemView: UIView {
     }
     
     private func setupLayout() {
-        let subviews = [symbolImageView, titleLabel, countLabel]
+        addSubviews(symbolImageView,
+                    titleLabel,
+                    countLabel)
         
-        for subview in subviews {
-            addSubview(subview)
-        }
         NSLayoutConstraint.activate([
             // symbolImageView
             symbolImageView.topAnchor.constraint(equalTo: self.topAnchor),
