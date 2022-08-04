@@ -100,14 +100,12 @@ extension FavoritesListViewController: UITableViewDelegate {
             return
         }
         
-        let favorite = favorites[indexPath.row]
-        favorites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .top)
-        
-        PersistenceManager.updateWith(favorite: favorite,
+        PersistenceManager.updateWith(favorite: favorites[indexPath.row],
                                       actionType: .remove) { [weak self] error in
             guard let self = self,
                   let error = error else {
+                self?.favorites.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .top)
                 return
             }
             self.presentAlertOnMainThread(title: "Unable to remove",
