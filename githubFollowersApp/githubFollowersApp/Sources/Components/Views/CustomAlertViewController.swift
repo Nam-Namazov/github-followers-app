@@ -9,7 +9,6 @@ import UIKit
 
 final class CustomAlertViewController: UIViewController {
     private let containerView = AlertContainerView()
-    
     private let errorMessageBodyLabel = BodyLabel(textAlignment: .center)
     private let errorTitleLabel = TitleLabel(textAlignment: .center,
                                                           fontSize: 20)
@@ -65,32 +64,22 @@ final class CustomAlertViewController: UIViewController {
             containerView.heightAnchor.constraint(equalToConstant: 220),
             
             // errorTitleLabel
-            errorTitleLabel.topAnchor.constraint(equalTo: containerView.topAnchor,
-                                                 constant: 20),
-            errorTitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,
-                                                     constant: 20),
-            errorTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor,
-                                                      constant: -20),
+            errorTitleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
+            errorTitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
+            errorTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
             errorTitleLabel.heightAnchor.constraint(equalToConstant: 28),
             
             // actionOkayButton
-            actionOkayButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,
-                                                     constant: -20),
-            actionOkayButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,
-                                                      constant: 20),
-            actionOkayButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor,
-                                                       constant: -20),
+            actionOkayButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
+            actionOkayButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
+            actionOkayButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
             actionOkayButton.heightAnchor.constraint(equalToConstant: 44),
             
             // errorMessageBodyLabel
-            errorMessageBodyLabel.topAnchor.constraint(equalTo: errorTitleLabel.bottomAnchor,
-                                                       constant: 8),
-            errorMessageBodyLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,
-                                                           constant: 20),
-            errorMessageBodyLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor,
-                                                            constant: -20),
-            errorMessageBodyLabel.bottomAnchor.constraint(equalTo: actionOkayButton.topAnchor,
-                                                          constant: -12)
+            errorMessageBodyLabel.topAnchor.constraint(equalTo: errorTitleLabel.bottomAnchor, constant: 8),
+            errorMessageBodyLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
+            errorMessageBodyLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
+            errorMessageBodyLabel.bottomAnchor.constraint(equalTo: actionOkayButton.topAnchor, constant: -12)
         ])
     }
     

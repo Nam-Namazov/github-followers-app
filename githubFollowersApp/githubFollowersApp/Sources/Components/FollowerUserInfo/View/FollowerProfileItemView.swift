@@ -34,7 +34,8 @@ final class FollowerProfileItemView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(itemInfoType: ItemInfoType, withCount count: Int) {
+    func set(itemInfoType: ItemInfoType,
+             withCount count: Int) {
         switch itemInfoType {
         case .repos:
             symbolImageView.image = SFSymbols.repos

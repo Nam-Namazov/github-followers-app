@@ -13,13 +13,15 @@ protocol FollowerUserInfoViewControllerDelegate: AnyObject {
 
 final class FollowerUserInfoViewController: UIViewController {
     var username: String!
+    
+    weak var delegate: FollowerUserInfoViewControllerDelegate?
+    
     private let headerView = UIView()
     private let firstItemView = UIView()
     private let secondItemView = UIView()
     private let githubSinceDateLabel = BodyLabel(textAlignment: .center)
     private let scrollView = UIScrollView()
     private let contentView = UIView()
-    weak var delegate: FollowerUserInfoViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,7 @@ final class FollowerUserInfoViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.configureUIElements(with: profile)
                 }
+                
             case .failure(let error):
                 self.presentAlertOnMainThread(title: "Something went wrong",
                                               message: error.rawValue,
@@ -54,7 +57,7 @@ final class FollowerUserInfoViewController: UIViewController {
     private func configureUIElements(with profile: FollowerProfileModel) {
         self.add(childViewController: RepositoryItemViewController(profile: profile, delegate: self),
                  to: self.firstItemView)
-
+        
         self.add(childViewController: ItemGetFollowersViewController(profile: profile, delegate: self),
                  to: self.secondItemView)
         
@@ -69,6 +72,7 @@ final class FollowerUserInfoViewController: UIViewController {
         
         scrollView.pinToEdges(of: view)
         contentView.pinToEdges(of: scrollView)
+        
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
     }
     

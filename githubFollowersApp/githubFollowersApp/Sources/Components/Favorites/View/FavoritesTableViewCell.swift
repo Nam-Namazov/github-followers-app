@@ -17,7 +17,7 @@ final class FavoritesTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
-        configureUI()
+        accessoryTypeConfigure()
     }
     
     required init?(coder: NSCoder) {
@@ -36,7 +36,7 @@ final class FavoritesTableViewCell: UITableViewCell {
         }
     }
     
-    private func configureUI() {
+    private func accessoryTypeConfigure() {
         accessoryType = .disclosureIndicator
     }
     

@@ -8,12 +8,12 @@
 import UIKit
 
 class ItemInfoViewController: UIViewController {
-    private let stackView = UIStackView()
     let firstItemInfoView = FollowerProfileItemView()
     let secondItemInfoView = FollowerProfileItemView()
     let actionButton = ActionButton()
     var profile: FollowerProfileModel!
-    
+    private let stackView = UIStackView()
+
     init(profile: FollowerProfileModel) {
         super.init(nibName: nil, bundle: nil)
         self.profile = profile
@@ -64,14 +64,15 @@ class ItemInfoViewController: UIViewController {
     }
     
     // MARK: - Selectors and Targets
-    private func configureActionButton() {
-        actionButton.addTarget(self,
-                               action: #selector(actionButtonTapped),
-                               for: .touchUpInside)
-    }
     
     @objc func actionButtonTapped() {
         // override this function in subclass controllers
         // RepositoryItemViewController and ItemGetFollowersViewController
+    }
+    
+    private func configureActionButton() {
+        actionButton.addTarget(self,
+                               action: #selector(actionButtonTapped),
+                               for: .touchUpInside)
     }
 }

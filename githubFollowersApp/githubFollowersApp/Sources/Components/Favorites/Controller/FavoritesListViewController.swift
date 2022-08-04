@@ -9,7 +9,6 @@ import UIKit
 
 final class FavoritesListViewController: DataLoadingViewController {
     private let tableView = UITableView()
-    
     private var favorites: [FollowerModel] = []
     
     override func viewDidLoad() {
@@ -35,26 +34,20 @@ final class FavoritesListViewController: DataLoadingViewController {
         tableView.frame = view.bounds
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(FavoritesTableViewCell.self, forCellReuseIdentifier: FavoritesTableViewCell.identifier)
+        tableView.register(FavoritesTableViewCell.self,
+                           forCellReuseIdentifier: FavoritesTableViewCell.identifier)
     }
     
     private func getFavorites() {
         PersistenceManager.retrieveFavorites { [weak self] result in
-            guard let self = self else { return }
+            guard let self = self else {
+                return
+            }
             
             switch result {
             case .success(let favorites):
-                if favorites.isEmpty {
-                    self.showEmptyStateView(with: "No favorites? \nAdd one on the follower screen 🧐",
-                                       in: self.view)
-                } else {
-                    self.favorites = favorites
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        self.view.bringSubviewToFront(self.tableView)
-                    }
-                }
-    
+                self.updateUI(with: favorites)
+                
             case .failure(let error):
                 self.presentAlertOnMainThread(title: "Something went wrong",
                                               message: error.rawValue,
@@ -62,14 +55,30 @@ final class FavoritesListViewController: DataLoadingViewController {
             }
         }
     }
+    
+    private func updateUI(with favorites: [FollowerModel]) {
+        if favorites.isEmpty {
+            self.showEmptyStateView(with: "No favorites? \nAdd one on the follower screen 🧐",
+                                    in: self.view)
+        } else {
+            self.favorites = favorites
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.view.bringSubviewToFront(self.tableView)
+            }
+        }
+    }
 }
+
 // MARK: - UITableViewDataSource
 extension FavoritesListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return favorites.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as? FavoritesTableViewCell else {
             return UITableViewCell()
         }
@@ -83,7 +92,8 @@ extension FavoritesListViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension FavoritesListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let favorite = favorites[indexPath.row]
@@ -114,7 +124,8 @@ extension FavoritesListViewController: UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
     }
 }

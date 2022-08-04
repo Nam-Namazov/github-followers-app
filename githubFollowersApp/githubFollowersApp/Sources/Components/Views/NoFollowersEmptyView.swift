@@ -8,9 +8,21 @@
 import UIKit
 
 final class NoFollowersEmptyView: UIView {
-    private let noFollowersTextLabel = TitleLabel(textAlignment: .center,
-                                                  fontSize: 28)
-    private let emptyStateLogoImageView = UIImageView()
+    private let noFollowersTextLabel: TitleLabel = {
+        let textLabel = TitleLabel(textAlignment: .center,
+                                   fontSize: 28)
+        textLabel.numberOfLines = 3
+        textLabel.textColor = .secondaryLabel
+        return textLabel
+    }()
+    
+    private let emptyStateLogoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Images.emptyStateLogo
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -31,39 +43,26 @@ final class NoFollowersEmptyView: UIView {
     }
     
     private func configureNoFollowersTextLabel() {
-        noFollowersTextLabel.numberOfLines = 3
-        noFollowersTextLabel.textColor = .secondaryLabel
-        
         addSubview(noFollowersTextLabel)
         let labelCenterYConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -80 : -110
-        let messageLabelCenterYConstraint = noFollowersTextLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: labelCenterYConstant)
-        messageLabelCenterYConstraint.isActive = true
         
         NSLayoutConstraint.activate([
-            noFollowersTextLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-                                                          constant: 40),
-            noFollowersTextLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor,
-                                                           constant: -40),
-            noFollowersTextLabel.heightAnchor.constraint(equalToConstant: 200)
+            noFollowersTextLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
+            noFollowersTextLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
+            noFollowersTextLabel.heightAnchor.constraint(equalToConstant: 200),
+            noFollowersTextLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: labelCenterYConstant)
         ])
     }
     
     private func configureEmptyStateLogoImageView() {
-        emptyStateLogoImageView.image = Images.emptyStateLogo
-        
         addSubview(emptyStateLogoImageView)
-        emptyStateLogoImageView.translatesAutoresizingMaskIntoConstraints = false
-        
         let logoBottomConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 80 : 40
-        let logoImageViewBottomConstraint =             emptyStateLogoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: logoBottomConstant)
-        logoImageViewBottomConstraint.isActive = true
+
         NSLayoutConstraint.activate([
-            emptyStateLogoImageView.widthAnchor.constraint(equalTo: self.widthAnchor,
-                                                           multiplier: 1.3),
-            emptyStateLogoImageView.heightAnchor.constraint(equalTo: self.widthAnchor,
-                                                            multiplier: 1.3),
-            emptyStateLogoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor,
-                                                              constant: 170)
+            emptyStateLogoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: logoBottomConstant),
+            emptyStateLogoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
+            emptyStateLogoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
+            emptyStateLogoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 170)
         ])
     }
 }
