@@ -58,8 +58,8 @@ final class NetworkManager {
     }
     
     func getUserInfo(for username: String,
-                      completion: @escaping (Result<FollowerProfileModel,
-                                             GetFollowersErrorMessage>) -> Void) {
+                     completion: @escaping (Result<FollowerProfileModel,
+                                            GetFollowersErrorMessage>) -> Void) {
         let endpoint = baseURL + "\(username)"
         
         guard let url = URL(string: endpoint) else {
@@ -89,7 +89,7 @@ final class NetworkManager {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 decoder.dateDecodingStrategy = .iso8601
                 let user = try decoder.decode(FollowerProfileModel.self,
-                                                   from: data)
+                                              from: data)
                 completion(.success(user))
             } catch {
                 completion(.failure(.invalidData))
@@ -98,7 +98,8 @@ final class NetworkManager {
         task.resume()
     }
     
-    func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
+    func downloadImage(from urlString: String,
+                       completion: @escaping (UIImage?) -> Void) {
         let cacheKey = NSString(string: urlString)
         
         if let image = cache.object(forKey: cacheKey) {

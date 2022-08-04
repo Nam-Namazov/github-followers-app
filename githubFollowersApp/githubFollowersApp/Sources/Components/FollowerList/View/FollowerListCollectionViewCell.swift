@@ -36,7 +36,6 @@ final class FollowerListCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        // addSubview
         contentView.addSubviews(avatarImageView,
                                 usernameLabel)
         

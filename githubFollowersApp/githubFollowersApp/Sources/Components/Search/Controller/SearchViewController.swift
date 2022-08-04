@@ -11,7 +11,6 @@ final class SearchViewController: UIViewController {
     var isUsernameIsEmpty: Bool {
         return !enterUsernameTextField.text!.isEmpty
     }
-    var logoImageViewConstraint: NSLayoutConstraint!
     
     private let logoImageView: UIImageView = {
         let logoImageView = UIImageView()
@@ -21,7 +20,6 @@ final class SearchViewController: UIViewController {
     }()
     
     private let enterUsernameTextField = UsernameTextField()
-    
     private let getFollowersButton = ActionButton(backGroundColor: .systemGreen,
                                                         title: "Get Followers")
     override func viewDidLoad() {
@@ -33,19 +31,8 @@ final class SearchViewController: UIViewController {
         addTargetConfigure()
     }
     
-    private func dismissKeyboardWhenUserTappedAtViewTapGesture() {
-        let tap = UITapGestureRecognizer(target: view,
-                                         action: #selector(UIView.endEditing(_:)))
-        view.addGestureRecognizer(tap)
-    }
-    
-    private func setupDelegateToTextField() {
-        enterUsernameTextField.delegate = self
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
@@ -55,6 +42,16 @@ final class SearchViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    private func dismissKeyboardWhenUserTappedAtViewTapGesture() {
+        let tap = UITapGestureRecognizer(target: view,
+                                         action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tap)
+    }
+    
+    private func setupDelegateToTextField() {
+        enterUsernameTextField.delegate = self
+    }
+
     private func style() {
         view.backgroundColor = .systemBackground
         title = "Search"
@@ -66,31 +63,24 @@ final class SearchViewController: UIViewController {
                          getFollowersButton)
         
         let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
-        logoImageViewConstraint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
-        logoImageViewConstraint.isActive = true
         
         NSLayoutConstraint.activate([
             // logoImageView
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant),
             logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logoImageView.heightAnchor.constraint(equalToConstant: 200),
             logoImageView.widthAnchor.constraint(equalToConstant: 200),
             
             // enterUsernameTextField
-            enterUsernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor,
-                                                        constant: 48),
-            enterUsernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                                            constant: 50),
-            enterUsernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                             constant: -50),
+            enterUsernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
+            enterUsernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            enterUsernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             enterUsernameTextField.heightAnchor.constraint(equalToConstant: 50),
             
             // getFollowersButton
-            getFollowersButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                                        constant: 50),
-            getFollowersButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-                                                       constant: -50),
-            getFollowersButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                         constant: -50),
+            getFollowersButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            getFollowersButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            getFollowersButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             getFollowersButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
@@ -110,15 +100,13 @@ final class SearchViewController: UIViewController {
             return
         }
         enterUsernameTextField.resignFirstResponder()
-        
         let followerListViewController = FollowerListViewController(username: enterUsernameTextField.text!)
-        
         navigationController?.pushViewController(followerListViewController,
                                                  animated: true)
     }
 }
 
-// MARK: - UITextFieldDelegate
+    // MARK: - UITextFieldDelegate
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         pushToTheFollowerListViewController()

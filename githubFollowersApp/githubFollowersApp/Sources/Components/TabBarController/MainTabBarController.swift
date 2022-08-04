@@ -8,6 +8,7 @@
 import UIKit
 
 final class MainTabBarController: UITabBarController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -16,10 +17,13 @@ final class MainTabBarController: UITabBarController {
     
     private func configureViewController() {
         let searchViewController = createNavController(viewController: SearchViewController(),
-                                                       tabBarSystemItem: .search, tag: 0)
+                                                       tabBarSystemItem: .search,
+                                                       tag: 0)
         let favoritesViewController = createNavController(viewController: FavoritesListViewController(),
-                                                          tabBarSystemItem: .favorites, tag: 1)
-        viewControllers = [searchViewController, favoritesViewController]
+                                                          tabBarSystemItem: .favorites,
+                                                          tag: 1)
+        viewControllers = [searchViewController,
+                           favoritesViewController]
     }
 
     private func createNavController(viewController: UIViewController,
