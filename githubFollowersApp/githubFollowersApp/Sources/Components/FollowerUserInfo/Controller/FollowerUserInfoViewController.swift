@@ -17,6 +17,8 @@ final class FollowerUserInfoViewController: UIViewController {
     private let firstItemView = UIView()
     private let secondItemView = UIView()
     private let githubSinceDateLabel = BodyLabel(textAlignment: .center)
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
     weak var delegate: FollowerUserInfoViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -25,6 +27,7 @@ final class FollowerUserInfoViewController: UIViewController {
         setupLayout()
         style()
         configureNavBarButtonItem()
+        scrollViewAndContentViewLayout()
     }
     
     private func style() {
@@ -60,6 +63,15 @@ final class FollowerUserInfoViewController: UIViewController {
         self.githubSinceDateLabel.text = "〠 Github since \(profile.createdAt.convertToMonthYearFormat())"
     }
     
+    private func scrollViewAndContentViewLayout() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        scrollView.pinToEdges(of: view)
+        contentView.pinToEdges(of: scrollView)
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+    }
+    
     private func setupLayout() {
         let subviews = [headerView,
                         firstItemView,
@@ -67,20 +79,20 @@ final class FollowerUserInfoViewController: UIViewController {
                         githubSinceDateLabel]
         
         for subview in subviews {
-            view.addSubview(subview)
+            contentView.addSubview(subview)
             subview.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([
-                subview.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                subview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                  constant: 20),
-                subview.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                subview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
                                                   constant: -20)
             ])
         }
 
         NSLayoutConstraint.activate([
             // headerView
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.topAnchor.constraint(equalTo: contentView.topAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 180),
            
             // firstItemView
@@ -93,7 +105,8 @@ final class FollowerUserInfoViewController: UIViewController {
             
             //githubSinceDateLabel
             githubSinceDateLabel.topAnchor.constraint(equalTo: secondItemView.bottomAnchor, constant: 20),
-            githubSinceDateLabel.heightAnchor.constraint(equalToConstant: 50)
+            githubSinceDateLabel.heightAnchor.constraint(equalToConstant: 50),
+            githubSinceDateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
