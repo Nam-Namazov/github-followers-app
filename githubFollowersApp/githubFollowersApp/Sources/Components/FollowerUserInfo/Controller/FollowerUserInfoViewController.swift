@@ -8,8 +8,7 @@
 import UIKit
 
 protocol FollowerUserInfoViewControllerDelegate: AnyObject {
-    func didTapGithubProfile(for profile: FollowerProfileModel)
-    func didTapGetFollowers(for profile: FollowerProfileModel)
+    func didRequestFollowers(for username: String)
 }
 
 final class FollowerUserInfoViewController: UIViewController {
@@ -18,7 +17,7 @@ final class FollowerUserInfoViewController: UIViewController {
     private let firstItemView = UIView()
     private let secondItemView = UIView()
     private let githubSinceDateLabel = BodyLabel(textAlignment: .center)
-    weak var delegate: FollowerListViewControllerDelegate?
+    weak var delegate: FollowerUserInfoViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,16 +49,10 @@ final class FollowerUserInfoViewController: UIViewController {
     }
     
     private func configureUIElements(with profile: FollowerProfileModel) {
-        let repoItemViewController = RepositoryItemViewController(profile: profile)
-        repoItemViewController.delegate = self
-        
-        let itemGetFollowersViewController = ItemGetFollowersViewController(profile: profile)
-        itemGetFollowersViewController.delegate = self
-        
-        self.add(childViewController: repoItemViewController,
+        self.add(childViewController: RepositoryItemViewController(profile: profile, delegate: self),
                  to: self.firstItemView)
 
-        self.add(childViewController: itemGetFollowersViewController,
+        self.add(childViewController: ItemGetFollowersViewController(profile: profile, delegate: self),
                  to: self.secondItemView)
         
         self.add(childViewController: FollowerProfileHeaderViewController(profile: profile),
@@ -101,7 +94,7 @@ final class FollowerUserInfoViewController: UIViewController {
             
             //githubSinceDateLabel
             githubSinceDateLabel.topAnchor.constraint(equalTo: secondItemView.bottomAnchor, constant: 20),
-            githubSinceDateLabel.heightAnchor.constraint(equalToConstant: 18)
+            githubSinceDateLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -125,8 +118,9 @@ final class FollowerUserInfoViewController: UIViewController {
         dismiss(animated: true)
     }
 }
-// MARK: - FollowerUserInfoViewControllerDelegate
-extension FollowerUserInfoViewController: FollowerUserInfoViewControllerDelegate {
+
+// MARK: - RepositoryItemViewControllerDelegate
+extension FollowerUserInfoViewController: RepositoryItemViewControllerDelegate {
     func didTapGithubProfile(for profile: FollowerProfileModel) {
         guard let url = URL(string: profile.htmlUrl) else {
             presentAlertOnMainThread(title: "Invalud URL",
@@ -136,7 +130,10 @@ extension FollowerUserInfoViewController: FollowerUserInfoViewControllerDelegate
         }
         presentSafariViewController(with: url)
     }
-    
+}
+
+// MARK: - ItemGetFollowersViewControllerDelegate
+extension FollowerUserInfoViewController: ItemGetFollowersViewControllerDelegate {
     func didTapGetFollowers(for profile: FollowerProfileModel) {
         guard profile.followers != 0 else {
             presentAlertOnMainThread(title: "No followers",

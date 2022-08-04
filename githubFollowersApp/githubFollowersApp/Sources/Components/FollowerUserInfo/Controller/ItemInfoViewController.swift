@@ -13,7 +13,7 @@ class ItemInfoViewController: UIViewController {
     let secondItemInfoView = FollowerProfileItemView()
     let actionButton = ActionButton()
     var profile: FollowerProfileModel!
-    weak var delegate: FollowerUserInfoViewControllerDelegate?
+    
     
     init(profile: FollowerProfileModel) {
         super.init(nibName: nil, bundle: nil)

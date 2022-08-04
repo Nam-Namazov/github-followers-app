@@ -61,10 +61,9 @@ final class SearchViewController: UIViewController {
     }
 
     private func setupLayout() {
-        // addSubview
-        view.addSubview(logoImageView)
-        view.addSubview(enterUsernameTextField)
-        view.addSubview(getFollowersButton)
+        view.addSubviews(logoImageView,
+                         enterUsernameTextField,
+                         getFollowersButton)
         
         let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
         logoImageViewConstraint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)

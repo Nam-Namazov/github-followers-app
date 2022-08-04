@@ -41,6 +41,7 @@
 		9989AC62289A9FDA0002E465 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989AC61289A9FDA0002E465 /* FavoritesTableViewCell.swift */; };
 		9989AC64289AD8CF0002E465 /* AlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989AC63289AD8CF0002E465 /* AlertContainerView.swift */; };
 		9989AC66289AE7CA0002E465 /* DataLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989AC65289AE7CA0002E465 /* DataLoadingViewController.swift */; };
+		9989AC68289B1AC10002E465 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989AC67289B1AC10002E465 /* UIView+Extension.swift */; };
 		99E6A0A8289961B200F39D21 /* FollowerUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E6A0A7289961B200F39D21 /* FollowerUserInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		9989AC61289A9FDA0002E465 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		9989AC63289AD8CF0002E465 /* AlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContainerView.swift; sourceTree = "<group>"; };
 		9989AC65289AE7CA0002E465 /* DataLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadingViewController.swift; sourceTree = "<group>"; };
+		9989AC67289B1AC10002E465 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		99E6A0A7289961B200F39D21 /* FollowerUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerUserInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,17 +183,9 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		9903BAB128975B670013A5CB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		9903BAB228975B890013A5CB /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				9903BAB128975B670013A5CB /* Model */,
 				9903BAAE289758690013A5CB /* View */,
 				9903BAAD289753A00013A5CB /* Controller */,
 			);
@@ -201,18 +195,10 @@
 		9903BAB328975B960013A5CB /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				9903BAB428975BA80013A5CB /* Model */,
 				9903BAB528975BAC0013A5CB /* View */,
 				9903BAB628975BAF0013A5CB /* Controller */,
 			);
 			path = Favorites;
-			sourceTree = "<group>";
-		};
-		9903BAB428975BA80013A5CB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		9903BAB528975BAC0013A5CB /* View */ = {
@@ -236,6 +222,7 @@
 			children = (
 				9903BAC72897F2A90013A5CB /* UIViewController+Extension.swift */,
 				994CFD3C2899DDC7002A28AE /* Date+Extension.swift */,
+				9989AC67289B1AC10002E465 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -330,6 +317,7 @@
 			children = (
 				99E6A0A7289961B200F39D21 /* FollowerUserInfoViewController.swift */,
 				994CFD352899A56C002A28AE /* ItemInfoViewController.swift */,
+				994CFD2F289982D0002A28AE /* FollowerProfileHeaderViewController.swift */,
 				994CFD372899AA39002A28AE /* RepositoryItemViewController.swift */,
 				994CFD392899ACEC002A28AE /* ItemGetFollowersViewController.swift */,
 			);
@@ -340,7 +328,6 @@
 			isa = PBXGroup;
 			children = (
 				994CFD2C28997A91002A28AE /* SecondaryTitleLabel.swift */,
-				994CFD2F289982D0002A28AE /* FollowerProfileHeaderViewController.swift */,
 				994CFD332899A01C002A28AE /* FollowerProfileItemView.swift */,
 			);
 			path = View;
@@ -448,6 +435,7 @@
 				994CFD342899A01C002A28AE /* FollowerProfileItemView.swift in Sources */,
 				9903BAD728982DF90013A5CB /* GetFollowersErrorMessage.swift in Sources */,
 				9903BAD4289823BE0013A5CB /* NetworkManager.swift in Sources */,
+				9989AC68289B1AC10002E465 /* UIView+Extension.swift in Sources */,
 				9989AC64289AD8CF0002E465 /* AlertContainerView.swift in Sources */,
 				994CFD362899A56C002A28AE /* ItemInfoViewController.swift in Sources */,
 				9903BADF28986F420013A5CB /* UIHelper.swift in Sources */,

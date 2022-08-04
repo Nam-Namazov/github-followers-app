@@ -7,8 +7,23 @@
 
 import UIKit
 
-final class RepositoryItemViewController: ItemInfoViewController {
+protocol RepositoryItemViewControllerDelegate: AnyObject {
+    func didTapGithubProfile(for profile: FollowerProfileModel)
+}
 
+final class RepositoryItemViewController: ItemInfoViewController {
+    weak var delegate: RepositoryItemViewControllerDelegate?
+    
+    init(profile: FollowerProfileModel,
+         delegate: RepositoryItemViewControllerDelegate) {
+        super.init(profile: profile)
+        self.delegate = delegate
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()

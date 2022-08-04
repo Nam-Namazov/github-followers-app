@@ -28,7 +28,6 @@ final class FollowerProfileHeaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSubviews()
         setupLayout()
         configureUIElements()
     }
@@ -55,20 +54,15 @@ final class FollowerProfileHeaderViewController: UIViewController {
         }
     }
     
-    private func addSubviews() {
-        let subviews = [profileImageView,
-                        loginLabel,
-                        nameLabel,
-                        locationImageView,
-                        locationLabel,
-                        bioLabel]
-        for subview in subviews {
-            view.addSubview(subview)
-        }
-    }
-    
     private func setupLayout() {
+        view.addSubviews(profileImageView,
+                         loginLabel,
+                         nameLabel,
+                         locationImageView,
+                         locationLabel,
+                         bioLabel)
         locationImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             // profileImageView
             profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
@@ -104,7 +98,7 @@ final class FollowerProfileHeaderViewController: UIViewController {
             bioLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 12),
             bioLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor),
             bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bioLabel.heightAnchor.constraint(equalToConstant: 60)
+            bioLabel.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
 }

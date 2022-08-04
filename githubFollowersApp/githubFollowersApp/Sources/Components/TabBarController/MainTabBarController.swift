@@ -10,11 +10,11 @@ import UIKit
 final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureVC()
+        configureViewController()
         style()
     }
     
-    private func configureVC() {
+    private func configureViewController() {
         let searchViewController = createNavController(viewController: SearchViewController(),
                                                        tabBarSystemItem: .search, tag: 0)
         let favoritesViewController = createNavController(viewController: FavoritesListViewController(),
