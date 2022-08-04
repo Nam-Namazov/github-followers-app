@@ -60,7 +60,6 @@ final class FollowerUserInfoViewController: UIViewController {
         self.githubSinceDateLabel.text = "〠 Github since \(profile.createdAt.convertToMonthYearFormat())"
     }
     
-    
     private func setupLayout() {
         let subviews = [headerView,
                         firstItemView,

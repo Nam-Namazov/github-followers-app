@@ -8,12 +8,11 @@
 import UIKit
 
 class ItemInfoViewController: UIViewController {
-    let stackView = UIStackView()
+    private let stackView = UIStackView()
     let firstItemInfoView = FollowerProfileItemView()
     let secondItemInfoView = FollowerProfileItemView()
     let actionButton = ActionButton()
     var profile: FollowerProfileModel!
-    
     
     init(profile: FollowerProfileModel) {
         super.init(nibName: nil, bundle: nil)
@@ -40,7 +39,6 @@ class ItemInfoViewController: UIViewController {
     private func configureStackView() {
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
-        
         stackView.addArrangedSubview(firstItemInfoView)
         stackView.addArrangedSubview(secondItemInfoView)
     }
