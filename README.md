@@ -8,6 +8,7 @@ Github Followers application implements:
 - Go to the github profile with safari
 - Search concrete user in collection view
 - Add user to favorites
+- Dark and Ligt mode
 
 ![mergeGF](https://user-images.githubusercontent.com/84244347/193916765-ea561c9d-41fb-4989-ac77-2af7347276ac.jpg)
 
