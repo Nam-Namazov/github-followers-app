@@ -10,6 +10,7 @@ Github Followers application implements:
 - Add user to favorites
 - Dark and Ligt mode
 
-![mergeGF](https://user-images.githubusercontent.com/84244347/193916765-ea561c9d-41fb-4989-ac77-2af7347276ac.jpg)
+![mergeGF](https://github.com/Nam-Namazov/media1/blob/main/merge_from_ofoct%20(2).png)
+![mergeGF](https://github.com/Nam-Namazov/media1/blob/main/merge_from_ofoct%20(3).png)
 
 <img src="https://github.com/Nam-Namazov/media1/blob/main/gf1Gif.gif" width="250" height="550" /> <img src="https://github.com/Nam-Namazov/media1/blob/main/ff2Gif.gif" width="250" height="550" /> <img src="https://github.com/Nam-Namazov/media1/blob/main/gf3Gif.gif" width="250" height="550" />
